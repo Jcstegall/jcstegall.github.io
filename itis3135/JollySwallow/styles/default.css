@@ -1,36 +1,68 @@
-*{
-    text-align: center;
-    margin: 5;
-    padding: 0;
+html {
+    background-color: #EBD2BE;
+    margin: 0;
+    padding: 20px 60px 20px 60px;
+    height: 100%;
 }
-header{
-    padding-bottom: 0px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 25px;
-}
-main{
-    color:grey;
-    max-width: 500px;
-    text-align: center;
-    margin: auto;
-    font-size: 15px;
-    display: flex;
-}
-footer{
-    font-size: 15px;
-    font-style:italic;
-    position:absolute;
-    bottom:0;
-    
-}
-main p {
-    font-size: 30px;
-}
-nav {
-    font-size: 25px;
-    flex-direction: column;
-    display: flex;
-    margin-left: 100px;
+header {
+    font-size: 4vh;
 }
 
-    
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push footer to bottom */
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px;
+    background-color: #FFE8D4;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    width: 80%;
+}
+
+/* Main Section */
+main {
+    flex-grow: 1; /* Expands to push footer down */
+    color: grey;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Navbar Styling */
+nav {
+    font-size: 4vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+p {
+    font-size: 3vh;
+    max-width: 60%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Nav Links */
+nav a {
+    text-decoration: none;
+    color: #7F055F;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    font-size: 15px;
+    font-style: italic;
+    color: #45062E;
+    align-self: flex-start; /* Sticks footer to bottom-left */
+}
