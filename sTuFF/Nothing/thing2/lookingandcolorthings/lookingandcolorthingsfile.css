@@ -1,0 +1,35 @@
+img {
+    width: 100%;
+    height: 1000px;
+}
+figcaption {
+    text-align: center;
+    font-size: 4vh;
+}
+p {
+    font-family: 'papyrus';
+    font-size: 4vh;
+    text-align: right;
+}
+h2 {
+    font-family: 'Comic Sans MS';
+}
+body {
+    text-align: center;
+}
+.fox {
+    background-color: yellow;
+    color: rgb(198, 214, 167);
+}
+
+/* Some random ugly colors */
+.python-h1 {
+    color: #00FF00;
+    text-shadow: 2px 2px 4px red;
+}
+a {
+    border-top: 20px dotted red;
+        border-right: 20px dashed green;
+        border-bottom: 20px solid yellow;
+        border-left: 20px double purple;
+}
