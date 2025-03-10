@@ -13,7 +13,9 @@ a:hover {
 }
 main {
     text-align: center;
-    margin: 0 20%;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
 }
 h2 {
     text-align: center;
@@ -25,7 +27,7 @@ img{
     height:31px
 }
 .profile {
-    width: 400px;
+    width: 702px;
     height: auto; 
 }
 figure {
