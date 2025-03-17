@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobby</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: #4B3B40;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position:absolute;
+      height: 100%;
+      font-size: 1.5rem;
+      width:10%;
+    }
+ A{
+  text-decoration:none;
+}
+nav a:hover{
+  color:#2874A6;
+}
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      margin: 0.5rem 0;
+      padding-top: 10px;
+      margin-left: 10px;
+    }
+
+    header {
+       
+      background-color: #ffffff;
+      font-family:Arial, Helvetica, sans-serif
+    }
+
+    main {
+      padding-bottom: 2rem;
+      margin-left: 10%;
+      background-color: #ececec;
+      padding-left: 1rem;
+    }
+    h2 {
+      size: 2rem;
+    }
+    .season-table {
+      width: 90%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .season-table th,
+    .season-table td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .season-table thead {
+    background-color: #4B3B40;
+    color: white;
+    }
+
+    section {
+  display: none;
+}
+
+.active {
+  display: block; 
+}
+
+    figure {
+      margin: 20px auto;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .weather-alert {
+  margin: 2rem 0;
+  text-align: center;
+  border: 2px solid #4B3B40;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.weather-alert img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.alert-link {
+  color: #4B3B40;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.alert-link:hover {
+  text-decoration: underline;
+}
+
+.season-images {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.season-images figure {
+  margin: 0;
+  max-width: 250px; 
+}
+.season-images img {
+  height: 200px; 
+  width: 250px; 
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .season-images img {
+    width: 100%; 
+    height: 250px;
+  }
+  
+  .season-images figure {
+    max-width: 400px;
+  }
+}
+  </style>
+
+</head>
+<body>
+
+  <div style="flex: 1;">
+    <header>
+      <h1>Hiking In Appalachia</h1>
+      <nav>
+        <a class="top_nav" href="#about">About</a>
+        <a href="#home" data-target="home">Home</a>
+
+        <a href="#when-to-go">When To Go</a>
+        <a href="#where">Where</a>
+        <a href="#how">How</a>
+        <a href="#why">Why</a>
+        <a href="#ai-prompts">Ai Prompts</a>
+      </nav>
+    
+    </header>
+
+    <main>
+       <section id="about"> <!-- section complete -->
+        <h2>About</h2>
+        <p>This site is a guide for anyone looking to explore the stunning trails of
+             North Carolina's Appalachian mountians. From peaceful day hikes to rugged mountain treks, 
+             I’m here to share my experience and help you discover this beautiful area of our state.</p>
+             
+             <h3>What You'll Find Here</h3>
+             <ul>
+               <li>🗺️ Helpful Tips for your hike whether you are a seasoned hiker or are interested in getting started</li>
+               <li>🌳 Insight on the best seasons to explore to enhance your experience</li>
+               <li>🥾 Gear recommendations and safety tips</li>
+               <li>🏞️ personal recomendations for which hikes to try out yourself</li>
+             </ul>
+
+             <figure>
+              <img src="images/blackBalsamKnob.webp" alt="Hiker at sunrise" 
+                   width="800">
+              <figcaption>Sunrise from Black Balsam Knob</figcaption>
+            </figure>
+    </section> 
+
+    <section id="home" class="active">  <!-- section complete-->
+        <h2>Home</h2>
+        <p>Whether you’re a beginner or seasoned adventurer, this site will guide you through the best hiking spots, 
+            times to go, and tips to stay safe in the Appalachian wilds.</p>
+            
+        <div class="weather-alert">
+          <a href="https://weather.com/weather/alerts/localalerts/l/73adae63e4f605b97860559d3e6d81649ec13a6a38385c8d242f2c687468345e2e2ae78006080ffb47d39d829c1a6366?phenomena=FF&significance=W&areaid=VAC195&office=KMRX&etn=0003" target="_blank">
+            <p class="alert-link">Check Appalachian Weather Alerts →</p>
+  
+          </a>
+        </div>
+        <figure>
+          <img src="images/landscape.jpg" alt="The landscape of the appalachain mountains" width="1500">
+            <figcaption>The landscape of the appalachain mountains at sunset.</figcaption>
+        </figure>
+       
+    </section>  
+
+      <section id="when-to-go"> <!-- complete-->
+        <h2>When To Go</h2>
+        <p>Fall is magical in the Appalachians, with vibrant foliage painting the trails. For cooler, quieter hikes, 
+            consider early spring or late summer. Be prepared for sudden weather changes at higher elevations.</p>
+
+<table class="season-table">
+  <thead>
+    <tr>
+      <th>Season</th>
+      <th>Weather</th>
+      <th>Trail Conditions</th>
+      <th>Wildlife Activity</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Spring</td>
+      <td>Mild, occasional rain</td>
+      <td>Greening trails, some muddy patches</td>
+      <td>High — birds, bears emerging</td>
+      <td>Wildflowers, fewer crowds</td>
+    </tr>
+    <tr>
+      <td>Summer</td>
+      <td>Warm to hot, thunderstorms</td>
+      <td>Dry and clear, busy</td>
+      <td>Moderate — insects and birds</td>
+      <td>Longer hikes, family trips</td>
+    </tr>
+    <tr>
+      <td>Fall</td>
+      <td>Cool, crisp, colorful foliage</td>
+      <td>Excellent — dry and scenic</td>
+      <td>Decreasing — bear activity slows</td>
+      <td>Photography, leaf peeping</td>
+    </tr>
+    <tr>
+      <td>Winter</td>
+      <td>Cold, snow in high areas</td>
+      <td>Snowy or icy, limited access</td>
+      <td>Low — mostly dormant</td>
+      <td>Solitude, snowshoeing</td>
+    </tr>
+  </tbody>
+</table>
+<div class="season-images">
+  <figure>
+    <img src="images/spring.jpg" alt="Spring trails" width="250">
+    <figcaption>Spring
+      <p><i>Picture of Appalachia in the spring</i></p>
+    </figcaption>
+    
+  </figure>
+  <figure>
+    <img src="images/summer.jpg" alt="Summer hike" width="200">
+    <figcaption>Summer
+      <p><i>Picture of Appalachia in the summer</i></p>
+    </figcaption>
+     
+  </figure>
+  <figure>
+    <img src="images/fall.jpg" alt="Fall foliage" width="200">
+    <figcaption>Fall
+      <p><i>Picture of Appalachia in the fall</i></p>
+    </figcaption>
+     
+  </figure>
+  <figure>
+    <img src="images/winter.jpg" alt="Winter scenery" width="200">
+    <figcaption>Winter
+      <p><i>Picture of Appalachia in the winter</i></p>
+    </figcaption>
+     
+  </figure>
+</div>
+
+    </section>  
+    
+    <section id="where"> <!-- Section Complete-->
+      <h2>Where</h2>
+      <p>paragraph for where</p>
+
+      <p> Best Places to go:</p>
+      <ul>
+          <li>Mount Mitchell State Park</li>
+          <li>Craggy Gardens</li>
+          <li>Linville Gorge</li>
+          <li>Grassy Ridge Bald via Appalachain Trail(My personal favorite)</li>
+      </ul>
+    
+   <figure>
+    <img src="images/grassyridge.png" alt="Hiker at sunrise" 
+         width="1600">
+    <figcaption>My picture from last time I was at Grassy Ridge(NC on left Virginia on right)</figcaption>
+  </figure>
+
+  </section>  
+      
+    <section id="how"> <!-- Section complete -->
+        <h2>How to</h2>
+        <p>What to bring:</p>
+        <ul>
+            <li>Hiking boots- A must for good traction and preventing injuries</li>
+            <li>Backpack- A comfotable and lightweight backpack makes all the difference</li>
+            <li>Water and Food: Better to overpack than underpack as dehydration and malnutrition can lead to worse consenquences down the road</li>
+            <li>First Aid: Always be prepared for injuries that can occur on the trails</li>
+            <li>Trail Map: Many trails do not have service so a physical map or a downloaded version will prevent confusion and keep you on trails</li>
+        </ul>
+        <p>Safety Tips</p>
+        <ul>
+            <li>Watch our for wildlife: Research and become knowledgeable about wildlife and best practices. Black bears are around, make noise while hiking and dont leave food out.</li>
+            <li>Stay on trail: Getting lost is easier than you might think, stick to marked trails and download your map on your phone will help!</li>
+            <li>Check the Weather: Weather can change fast, hiking in thunderstorms is a big risk.</li>
+            <li>Let someone know your plan: Tell a friend or family member your hiking plans and estimated return time</li>
+        </ul>
+
+        <form>
+            <p>Pre-hike checklist:</p>
+            <label><input type="checkbox" /> Proper clothing and hiking boots</label><br>
+            <label><input type="checkbox" /> Packed enough water and food</label><br>
+            <label><input type="checkbox" /> Told someone my route and estimated return time</label><br>
+            <label><input type="checkbox" /> Checked the weather</label><br>
+          </form>
+          <figure>
+            <img src="images/safety_equiptment.jpg" alt="Safety equipment" width="400">
+            <figcaption>Safety equipment to prepare you for the mountians.
+              <p><i>Picture of safety equipment in the Appalachian Mountains</i></p>
+            </figcaption>
+            
+          </figure>
+          
+    </section>    
+
+      <section id="why">
+        <h2>Why</h2> <!-- Section complete -->
+        <p>Hiking in the Appalachians is more than exercise — it’s a way to disconnect from the noise, 
+            breathe mountain air, and feel a deep connection to the land. These ancient hills hold stories, peace, and beauty worth experiencing.</p>
+
+            <figure>
+                <img src="images/Appalachain_Landscape.png" alt="The Appalachain Landscape" width="1024">
+                <figcaption>The Beautiful landscape of the Appalachain mountains.
+                  <p><i>Picture of the landscape in the Appalachain mountains</i></p>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img src="images/bear_in_mountains.png" alt="a bear in the mountains" width="1024">
+                <figcaption>Explore the wildlife offered.
+                  <p><i>Picture of wildlife in the Appalachain mountains</i></p>
+                </figcaption>
+              </figure>
+              
+    </section>   
+      
+    <section id="ai-prompts">
+        <h2>Ai Prompts</h2>
+        <p>ChatGpt was used to create the table in the When To Go Promt:"Create a season comparison table"</p>
+    </section>  
+
+    </main>
+  </div>
+
+  <footer>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  </footer>
+  
+
+  <script>
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('nav a');
+    
+    // Get all sections
+    const sections = document.querySelectorAll('section');
+
+    // Function to show a specific section
+    function showSection(targetId) {
+      // Hide all sections
+      sections.forEach((section) => section.classList.remove('active'));
+      
+      // Show the selected section
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+    }
+
+    // Event listener for navigation links
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const targetId = event.target.getAttribute('href').substring(1); // Remove '#' from href
+        showSection(targetId);
+      });
+    });
+  </script>
+
+</body>
+</html>
