@@ -5,15 +5,190 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julian Stegall's Jolly Swallow || ITIS3135 tables</title>
     <link rel="stylesheet" href="styles/default.css">
-    
 </head>
 <body>
+    <style>
+table {
+    border-collapse: collapse;
+    margin:auto;
+
+}
+
+
+th, td {
+    border: 2px solid #333;
+    padding: 10px;
+    
+}
+ol {
+    list-style-position: inside;
+    text-align: left;
+    margin: auto;
+    padding: 0;
+    width: 60%;
+
+}
+.table tr:nth-of-type(even) {
+            background-color: #dddddd; /* Light gray */
+        }
+
+        .table tr:nth-of-type(odd) {
+            background-color: #ffffff; /* White */
+        }
+
+        /* Style for total row */
+        .table tr:first-child {
+            background-color: #555;
+            color: white;
+            font-weight: bold;
+        }
+
+       </style>
     <header>
         <div data-include="components/header.html"></div>
     </header>
     <main>
-        
         <h2>HTML Tables - Whimsical Company</h2>
+
+        <h3>My fan<i>tabulous</i> data</h3>
+        <ol>
+            <li>Anita Bath – abath4@yahoo.com – 25</li>
+            <li>Chris P. Bacon – cpbacon@uncc.edu – 19</li>
+            <li>Dustin T. Wind – dtwind91@gmail.com – 34</li>
+            <li>Ella Vator – evator09@yahoo.com – 3</li>
+            <li>Anita Nap – anap4@yahoo.com – 25</li>
+            <li>Zoe Tired – ztired@uncc.edu – 19</li>
+            <li>Mo Rest – mrest77@gmail.com – 10</li>
+            <li>Ivanna Break – ibreak17@outlook.com – 8</li>
+        </ol>
+        <h3>Employee Data in a simple table</h3>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Years of Service</th>
+    </tr>
+    <tr>
+        <td>Anita Bath</td>
+        <td>abath4@yahoo.com</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td>Chris P. Bacon</td>
+        <td>cpbacon@uncc.edu</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>Dustin T. Wind</td>
+        <td>dtwind91@gmail.com</td>
+        <td>34</td>
+    </tr>
+    <tr>
+        <td>Ella Vator</td>
+        <td>evator09@yahoo.com</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Anita Nap</td>
+        <td>anap4@yahoo.com</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td>Zoe Tired</td>
+        <td>ztired@uncc.edu</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>Mo Rest</td>
+        <td>mrest77@gmail.com</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>Ivanna Break</td>
+        <td>ibreak17@outlook.com</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+    </tr>
+</table>
+
+<h3>Employee Data in a complex table</h3>
+<figure>
+<table class="table">
+    <tr>
+        <th>department</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Years of Service</th>
+        <th>Monthly Salary</th>
+    </tr>
+    <tr>
+        <td rowspan="3">Marketing</td>
+        <td>Anita Bath</td>
+        <td>abath4@yahoo.com</td>
+        <td>25</td>
+        <td>2000</td>
+    </tr>
+    <tr>
+        
+        <td>Chris P. Bacon</td>
+        <td>cpbacon@uncc.edu</td>
+        <td>19</td>
+        <td>3500</td>
+    </tr>
+    <tr>
+        
+        <td>Dustin T. Wind</td>
+        <td>dtwind91@gmail.com</td>
+        <td>34</td>
+        <td>5650</td>
+    </tr>
+    <tr>
+        <td rowspan="3">Sales</td>
+        <td>Ella Vator</td>
+        <td>evator09@yahoo.com</td>
+        <td>3</td>
+        <td>3000</td>
+    </tr>
+    <tr>
+      
+        <td>Anita Nap</td>
+        <td>anap4@yahoo.com</td>
+        <td>25</td>
+        <td>5200</td>
+    </tr>
+    <tr>
+        
+        <td>Zoe Tired</td>
+        <td>ztired@uncc.edu</td>
+        <td>19</td>
+        <td>4400</td>
+    </tr>
+    <tr>
+        <td rowspan="2">HR</td>
+        <td>Mo Rest</td>
+        <td>mrest77@gmail.com</td>
+        <td>10</td>
+        <td>  4250</td>
+    </tr>
+    <tr>
+        <td>Ivanna Break</td>
+        <td>ibreak17@outlook.com</td>
+        <td>8</td>
+        <td>4000</td>
+    </tr>
+    <tr>
+        <th colspan="3">Total Years of Service</th>
+        <th>143</th>  
+        <th>37,000</th>  
+    </tr>
+</table>
+<figcaption>Employee Data</figcaption>
+</figure>
+
 
     </main>
 

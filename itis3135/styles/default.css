@@ -1,12 +1,14 @@
 body{
-    background-color: darkslategrey;
+    background-color: rgb(141, 170, 170);
     text-align: center;
     color: black;
     font-family: monospace;
+    font-size: 2em;
 }
 a {
-    color: cornsilk;
+    color: whitesmoke;   
     text-decoration: none;
+    font-family: sans-serif;
 }
 a:hover {
     color: crimson;
