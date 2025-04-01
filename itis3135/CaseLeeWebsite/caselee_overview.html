@@ -4,102 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaseLee Website Overview</title>
-    <link rel="stylesheet" href="styles/default.css">
-    
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+
 </head>
 <body>
     <header>
-        <div data-include="../components/header.html"></div>
+        <h1>Client Project Overview</h1>
     </header>
     <main>
+      
         
-        <h2>Overview</h2>
         <ol>
 
             <li><h3>Project Overview</h3>
                 <ol>
-                    <li>Describe your application and its purpose</li>
-                    <li>nteded users of the website</li>
-                    <li>Overview of the content of the website</li>
+                    <li>This application will be a website for a clients business. The client fixes small dents in cars and will use the website as a hub to refer clients 
+                        to write reviews, read reviews, contact him for quotes, and display pictures of the previous cars and dents he has fixed.
+                    </li>
+                    <li>The intended user of this website is his future and current clients.</li>
+                    <li>This website will have content for a home page, a review section, a contact section and form, and pictures of the cars and dents he has fixed.</li>
                 </ol>
             </li>
 
             <li>
                 <h3>Client Information</h3>
-                <p></p>
                 <ol>
-                    <li>name</li>
-                    <li>organization</li>
-                    <li>evmail address(can skip)</li>
-                    <li>phone number(can skip)</li>
+                    <li>Kevin Stegall</li>
+                    <li>His personal company</li>
+                    <li>email(private)</li>
+                    <li>phone(private)</li>
                 </ol>
             </li>
             <li>
                 <h3>WireFrame</h3>
-                <p></p>
-                <figure>
-                    <img>
-                    <figcaption>
-
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
+                 <figure>
+                    <img src="images/clientWireframe.png" alt="Client wireframe">
+                    <figcaption>The wireframe for the home page of the clients website</figcaption>
+                    </figure>
             </li>
             <li>
                 <h3>Site Map</h3>
-                <p></p>
-                <ol>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ol>
+
+                    <figure>
+                        <img src="images/ClientSitemap.png" alt="Client Sitemap">
+                        <figcaption>The site map for the client's website
+                        </figcaption>
+                    </figure>
             </li>
             <li>
                 <h3>Page Design</h3>
-                <p></p>
-                <ol>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ol>
+                <p>Home page</p>
+                    <ol> 
+                        <li>This will be the landing page and the main navigation page for the users.</li>
+                        <li>This is a user page for the user to navigate through the site and 
+                            find what they are looking for. It will be a navigation bar with links to other pages.</li>
+                        <li>This is a page for the users to navigate through the site and the get information about the business owner.</li>
+                        <li>Users will not input data here.</li>
+                        <li>No, the users will use this is as a landing page.</li>
+                        <li>There will be navigation buttons.</li>
+                        <li>The navigation bar will switch the page to the desired page.</li>
+ 
+                    </ol>
+                <br>
+                <p>Reviews</p>
+                    <ol> 
+                        <li>This page will allow new or potential customers to see previous reviews on the site and it will past customers to write a review to the business owner.</li>
+                        <li>This is a user page.</li>
+                        <li>There will be reviews displayed on the website as well as a section for the user to write a review to post.</li>
+                        <li>Yes, the users can write a review to be displayed.</li>
+                        <li>This will require user validation, but I am going to try to make the reviews show and write to a business on google maps. This will require the customer to have a google account.</li>
+                        <li>There will be some sort of link for the user to go to the google maps page.</li>
+                        <li>Api calls to display the data from google reviews, and maybe calls to write a review to google if they allow that- if not a link to write a review on the google business.</li>
+                        <li>This page will require special work and might change based on what I will be able to complete and host using API calls.</li>
+                    </ol>
+                    <br>
+                <p>Before and After Pictures</p>
+                    <ol> 
+                        <li>To show customers examples of cars Kevin has fixed in the past.</li>
+                        <li>This will be a user page.</li>
+                        <li>This page will have plenty of pictures.</li>
+                        <li>No they will not, there might be a part that are customer pictures where the api calls pictures left on google reviews.</li>
+                        <li>No validation required for this page.</li>
+                        <li>There might be a link to view more customer review pictures, but maybe just navigation back to other pages.</li>
+                        <li>Just navigation buttons, the user will not be able to directly add anything to this page.</li>
+                        <li>I need to find a visually pleasant way to display pairs of pictures and make sure they display nice and are high quality.</li>
+                    </ol>
+                    <br>
+                <p>Contact Page</p>
+                    <ol>  
+                        <li>This page allows the user to contact Kevin directly.</li>
+                        <li>This will be a user page.</li>
+                        <li>this page will have a form that allows the user to input the details of their car so they can get an estimate.</li>
+                        <li>Yes, they will input data like the make and model of their car as well as pictures or descriptions of data.</li>
+                        <li>The form will likely be sent as an email so the user will need an outside email.</li>
+                        <li>A copy or main button to be able to email Kevin the form and details.</li>
+                        <li>Text and images input and a button to send an email.</li>
+                        <li>Down the line and with more communication with the client will determine if a pdf form or a html form with a specific layout will be best and the form of communication.</li>
+                    </ol>
+                    <br>
+                <p>F&Q Page</p>
+                    <ol>  
+                        <li>This page will be able to answer questions that customers might have.</li>
+                        <li>This will be a user page.</li>
+                        <li>Facts and questions for the users to look at to learn more or answer any questions they might have.</li>
+                        <li>No they will not, unless my customer wants to make it so customers can ask questions and answer them to create engagement.</li>
+                        <li>No they will not unless my customer wants to add the option above.</li>
+                        <li>There will be some links in some of the facts or answers.</li>
+                        <li>There will not be much more than scrolling to view, maybe navigation in appropriate facts or answers to navigate to the response.</li>
+ 
+                    </ol>
+               
+                
             </li>
             <li>
                 <h3>Dynamic Functionality of the website</h3>
-                <p></p>
-                <ol>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ol>
+                <p> I will have to use JavaScript in the reviws page. It will be needed to communicate with googles API and make calls to get its info for reviews. I will also probably add
+                     a map feature so the user can see where in charlotte my client is located. I will use javascript in the contact page as well. If I use an html form, I will have to 
+                     use javascript to make it into a readable form to send over email. The copy email features or navigate to mail will also need javascript logic. The before and after pictures 
+                     might need javascript depedning on how my client wants the pictures displayed, if he wants some sort of overlapping feature it might be needed.
+                </p>
             </li>
         </ol>
     
     </main>
 
     <footer>
-        <div data-include="../components/footer.html"></div>
+        <script src="../scripts/HTMLInclude.min.js"></script>
     </footer>
     
-    <script src="scripts/HTMLInclude.min.js"></script>
+    
 </body>
 </html>
