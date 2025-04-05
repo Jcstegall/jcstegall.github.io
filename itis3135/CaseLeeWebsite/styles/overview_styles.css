@@ -1,0 +1,95 @@
+
+body {
+    background-color: #f5f6fa; /* Light background for modern look */
+    color: #2c3e50; /* Dark color for text to provide contrast */
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    text-align: center; /* Center alignment for content */
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #3498db; /* Light blue for links */
+    text-decoration: none; /* Clean link styles */
+}
+
+a:hover {
+    color: #2c3e50; /* Dark color on hover */
+}
+
+header, main, footer {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+button{
+
+        width: 80%;
+        height: 10vh;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        cursor: pointer;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {
+    text-align: left;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #2c3e50;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.modern-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    margin: 20px;
+}
+figcaption {
+    text-align: center;
+}
