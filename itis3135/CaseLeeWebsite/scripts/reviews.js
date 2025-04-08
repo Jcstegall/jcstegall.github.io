@@ -32,7 +32,7 @@ function getStarsHtml(rating) {
     let stars = '';
     for (let i = 1; i <= 5; i++) {
         if (i <= rating) {
-            stars += '<span class="star filled">★</span>';
+            stars += '<span class="star-filled">★</span>';
         } else {
             stars += '<span class="star">☆</span>';
         }
