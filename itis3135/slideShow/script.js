@@ -9,6 +9,7 @@ const imageData = [
     { src: "images/image4.jpeg", alt: "Northern Lights" }
 ];
 
+
 const container = document.querySelector('.container');
 const thumbnailRow = document.getElementById('thumbnail-row');
 
