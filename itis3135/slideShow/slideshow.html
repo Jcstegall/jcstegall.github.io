@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,26 +14,27 @@
     </header>
     <main>
         <h2>Slideshow</h2>
-        <div class="slideshow-container">
-            <div class="slides">
-                <!-- Slides will be created dynamically by JavaScript -->
-            </div>
-            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-            <button class="next" onclick="plusSlides(1)">&#10095;</button>
-            <button class="play-pause" onclick="toggleSlideshow()">Play</button>
+        
+        <!-- Main slideshow container -->
+        <div class="container">
+            <!-- Full-width images with number text will be dynamically generated -->
+            <!-- next & previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
         </div>
-        <div id="slide-counter" class="slide-counter">
-            <!-- Counter will be updated by JavaScript -->
+
+        <!-- Thumbnail images - Now positioned below main container -->
+        <div class="row" id="thumbnail-row">
+            <!-- Thumbnail columns will be dynamically generated -->
         </div>
-        <!-- Thumbnail navigation -->
-        <div class="row">
-            <div class="column" id="thumbnails"><!-- Thumbnails will be created dynamically --></div>
-        </div>
+
+        <section> 
             <h3>Notes</h3>
             <p>The validator does not like is a function is used before it is called so I had to work around that.</p>
             <p>Signed<br>Julian Stegall, 4/08/2025 9:00pm</p>
         </section>
-        
     </main>
 
     <footer>

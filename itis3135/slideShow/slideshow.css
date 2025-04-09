@@ -1,40 +1,32 @@
-.slideshow-container {
+.container {
     position: relative;
     max-width: 100%;
-    margin: 0 auto; /* Ensure container is centered within body */
-    height: 80vh;
+    margin: auto;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f4f4f4;
 }
 
 /* CSS for flexbox thumbnail row */
 .row {
     display: flex;
-    justify-content: flex-start; /* Align items horizontally from the start */
-    align-items: center;
-    flex-wrap: nowrap; /* Prevent wrapping to maintain a single line */
-    overflow-x: auto; /* Allow horizontal scrolling if window is too narrow */
-    white-space: nowrap; /* Prevent breaks */
+    justify-content: space-between;
     margin: 20px 0;
-    padding: 0;
+    overflow-x: auto;
 }
 
 .column {
-    flex: 0 0 auto; /* Ensure columns do not grow or shrink */
-    max-width: 150px;
-    margin: 5px;
+    flex: 0 0 auto;
+    width: 16.66%;
 }
 
 .demo {
-    cursor: pointer;
-    transition: all 0.3s ease; /* Add smooth transition effects */
+    opacity: 0.6;
+    width: 100%; /* Set max width for thumbnail images */
+    height: auto; /* Keep auto height for flexible image display */
+    transition: opacity 0.3s;
 }
 
-.demo:hover {
-    opacity: 0.7; /* Slight transparency on hover to indicate interaction */
+.active, .demo:hover {
+    opacity: 1;
 }
 
 .slides {
@@ -54,38 +46,46 @@
     justify-content: center; /* Horizontal centering */
 }
 
-.slides .slide img {
+.mySlides {
+    display: none;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin: auto;
+    height: 70vh; /* Adjust height for desired aspect ratio and fit */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.prev, .next, .play-pause {
+.mySlides img {
+    object-fit: cover; /* Cover the space according to aspect ratio */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.prev, .next {
     position: absolute;
     top: 50%;
-    background-color: rgba(0,0,0,0.5);
+    width: auto;
+    padding: 16px;
     color: white;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 50%;
-    transform: translateY(-50%);
-}
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 
-.next {
-    right: 5%;
+    transform: translateY(-50%); 
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .prev {
-    left: 5%;
+    left: 0; /* Align flush with left side */
+    border-radius: 3px 0 0 3px;
 }
 
-.play-pause {
-    bottom: 10%;
-    top: auto;
-    left: 50%;
-    transform: translate(-50%, 0);
+.next {
+    right: 0; /* Align flush with right side */
+    border-radius: 3px 0 0 3px;
 }
 p {
     text-align: left;
