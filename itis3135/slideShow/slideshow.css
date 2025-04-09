@@ -1,0 +1,92 @@
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto; /* Ensure container is centered within body */
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f4;
+}
+
+/* CSS for flexbox thumbnail row */
+.row {
+    display: flex;
+    justify-content: flex-start; /* Align items horizontally from the start */
+    align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping to maintain a single line */
+    overflow-x: auto; /* Allow horizontal scrolling if window is too narrow */
+    white-space: nowrap; /* Prevent breaks */
+    margin: 20px 0;
+    padding: 0;
+}
+
+.column {
+    flex: 0 0 auto; /* Ensure columns do not grow or shrink */
+    max-width: 150px;
+    margin: 5px;
+}
+
+.demo {
+    cursor: pointer;
+    transition: all 0.3s ease; /* Add smooth transition effects */
+}
+
+.demo:hover {
+    opacity: 0.7; /* Slight transparency on hover to indicate interaction */
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+}
+
+.slides .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.prev, .next, .play-pause {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 5%;
+}
+
+.prev {
+    left: 5%;
+}
+
+.play-pause {
+    bottom: 10%;
+    top: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+p {
+    text-align: left;
+}

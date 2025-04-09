@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/default.css">
+    <link rel="stylesheet" href="slideshow.css">
+    <title>Julian Stegall's Jolly Swallow ITIS3135 SlideShow</title>
+</head>
+<body>
+    <header>
+        <div data-include="../components/header.html"></div>
+    </header>
+    <main>
+        <h2>Slideshow</h2>
+        <div class="slideshow-container">
+            <div class="slides">
+                <!-- Slides will be created dynamically by JavaScript -->
+            </div>
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+            <button class="play-pause" onclick="toggleSlideshow()">Play</button>
+        </div>
+        <div id="slide-counter" class="slide-counter">
+            <!-- Counter will be updated by JavaScript -->
+        </div>
+        <!-- Thumbnail navigation -->
+        <div class="row">
+            <div class="column" id="thumbnails"><!-- Thumbnails will be created dynamically --></div>
+        </div>
+            <h3>Notes</h3>
+            <p>The validator does not like is a function is used before it is called so I had to work around that.</p>
+            <p>Signed<br>Julian Stegall, 4/08/2025 9:00pm</p>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div data-include="../components/footer.html"></div>
+    </footer>
+    
+    <script src="../scripts/HTMLInclude.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
