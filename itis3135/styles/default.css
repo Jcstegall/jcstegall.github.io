@@ -22,12 +22,12 @@ main {
 h2 {
     text-align: center;
 }
-img{
+/* img{
     width: 60%;
     border:0;
     width:88px;
     height:31px
-}
+} */
 .profile {
     width: 702px;
     height: auto; 

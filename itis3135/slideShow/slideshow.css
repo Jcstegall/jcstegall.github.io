@@ -1,92 +1,105 @@
-.container {
+body{
+    box-sizing: border-box;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
     position: relative;
-    max-width: 100%;
-    margin: auto;
-    overflow: hidden;
-}
-
-/* CSS for flexbox thumbnail row */
-.row {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-    overflow-x: auto;
-}
-
-.column {
-    flex: 0 0 auto;
-    width: 16.66%;
-}
-
-.demo {
-    opacity: 0.6;
-    width: 100%; /* Set max width for thumbnail images */
-    height: auto; /* Keep auto height for flexible image display */
-    transition: opacity 0.3s;
-}
-
-.active, .demo:hover {
-    opacity: 1;
-}
-
-.slides {
+    overflow: visible; /* Allow navigation buttons to be visible outside container */
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    padding-bottom: 0px; /* Remove padding */
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
     position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center; /* Vertical centering */
-    justify-content: center; /* Horizontal centering */
-}
-
-.mySlides {
-    display: none;
-    width: 100%;
-    height: 70vh; /* Adjust height for desired aspect ratio and fit */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mySlides img {
-    object-fit: cover; /* Cover the space according to aspect ratio */
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
+    top: 50%;  /* Changed from 40% to 50% for perfect vertical centering */
+    transform: translateY(-50%);  /* Added to ensure perfect vertical centering */
     width: auto;
     padding: 16px;
     color: white;
     font-weight: bold;
     font-size: 20px;
-    border-radius: 0 3px 3px 0;
     user-select: none;
 
-    transform: translateY(-50%); 
+    background-color: rgba(0, 0, 0, 0.4);  /* Added semi-transparent background */
+    margin-top: 0;  /* Removed negative margin */
+    z-index: 1;  /* Added to ensure buttons stay above images */
+  }
+  
+  .prev {
+    left:-592px;   
+    bottom: 337px;
+    border-radius: 0 3px 3px 0;   
+  } 
+  .next {
+    right: -592px;  
+    bottom: 337px;
+    border-radius: 3px 0 0 3px;   
+  }
+  
+ 
+  .prev:hover,
+  .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
-}
+  }
 
-.prev {
-    left: 0; /* Align flush with left side */
-    border-radius: 3px 0 0 3px;
-}
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 2vh;
+    padding: 8px 12px;
+    position: relative;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px;
+    color: white;
+    
+  }
 
-.next {
-    right: 0; /* Align flush with right side */
-    border-radius: 3px 0 0 3px;
-}
-p {
-    text-align: left;
-}
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+  img {
+    max-width: auto;
+    height: 675px;
+  }
+  .demo {
+    width: 100%;
+    height: auto;
+  }
