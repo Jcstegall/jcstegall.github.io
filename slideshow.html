@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/default.css">
+    <link rel="stylesheet" href="slideshow.css">
+    <title>Julian Stegall's Jolly Swallow ITIS3135 SlideShow</title>
+</head>
+<body>
+    <header>
+        <div data-include="../components/header.html"></div>
+    </header>
+    <main>
+        <h2>Slideshow</h2>
+        
+<!-- Container for the image gallery -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number text -->
+    <div class="mySlides">
+      <div class="numbertext">1 / 13</div>
+      <img src="images/jewelery_stretched.jpg" alt="jewelery">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">2 / 13</div>
+      <img src="images/usb_stretched.jpg" alt="usb">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">3 / 13</div>
+      <img src="images/laptop_stretched.jpg" alt="laptop">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">4 / 13</div>
+      <img src="images/ice_stretched.jpg" alt="ice">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">5 / 13</div>
+      <img src="images/apple_stretched.jpg" alt="apple">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">6 / 13</div>
+      <img src="images/nuts_stretched.jpg" alt="nuts">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">7 / 13</div>
+      <img src="images/sunglasses_stretched.jpg" alt="sunglasses">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">8 / 13</div>
+      <img src="images/tack_stretched.jpg" alt="tack">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">9 / 13</div>
+      <img src="images/earbud_stretched.jpg" alt="earbud">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">10 / 13</div>
+      <img src="images/glass_stretched.jpg" alt="glass">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">11 / 13</div>
+      <img src="images/avacado_stretched.jpg" alt="avacado">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">12 / 13</div>
+      <img src="images/lanyard_stretched.jpg" alt="lanyard">
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">13 / 13</div>
+      <img src="images/lego_stretched.jpg" alt="lego">
+    </div>
+    
+ 
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+    <!-- Image text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+  
+    <!-- Thumbnail images -->
+    <div class="row">
+
+      <div class="column">
+  <img class="demo cursor" src="images/jewelery.jpg" onclick="currentSlide(1)" alt="Jewelery">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/usb.jpg" onclick="currentSlide(2)" alt="Usb">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/laptop.jpg" onclick="currentSlide(3)" alt="Laptop">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/ice.jpg" onclick="currentSlide(4)" alt="Ice">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/apple.jpg" onclick="currentSlide(5)" alt="Apple">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/nuts.jpg" onclick="currentSlide(6)" alt="Nuts">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/sunglasses.jpg" onclick="currentSlide(7)" alt="Sunglasses">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/tack.jpg" onclick="currentSlide(8)" alt="Tack">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/earbud.jpg" onclick="currentSlide(9)" alt="Earbud">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/glass.jpg" onclick="currentSlide(10)" alt="Glass">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/avacado.jpg" onclick="currentSlide(11)" alt="Avacado">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/lanyard.jpg" onclick="currentSlide(12)" alt="Lanyard">
+</div>
+<div class="column">
+  <img class="demo cursor" src="images/lego.jpg" onclick="currentSlide(13)" alt="Lego">
+</div>
+    </div>
+  </div>
+
+        <section> 
+            <h3>Notes</h3>
+            <p>The validator does not like is a function is used before it is called so I had to work around that.</p>
+            <a href="https://imageresizer.com/" target="_blank">Image Resizer</a><br>
+            <a href="https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp" target="_blank">SlideShow Template</a>
+            <p>This is my work and I did not copy and paste anyone else's code</p>
+            <p>Signed<br>Julian Stegall, 4/10/2025 11:45pm</p>
+        </section>
+    </main>
+
+    <footer>
+        <div data-include="../components/footer.html"></div>
+    </footer>
+    
+    <script src="../scripts/HTMLInclude.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
