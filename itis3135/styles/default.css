@@ -51,19 +51,19 @@ ul{
 }
 /* Rule Overrides For Laptops / Small Screens */
 @media screen and ( min-width: 981px ) and ( max-width: 1400px ) {
-    #colorbox {
+    #body{
         background-color:rgb(46, 148, 148);
     }
 }
 /* Rule Overrides For Tablet Devices */
 @media screen and ( min-width: 601px ) and ( max-width: 980px )  {
-    #colorbox {
+    #body {
         background-color:rgb(100, 161, 161);
     }
 }
 /* Rule Overrides For Mobile Devices */
 @media screen and ( min-width: 370px ) and ( max-width: 600px ) {
-    #colorbox {
+    #body {
         background-color:rgb(138, 153, 153);
     }
 }
