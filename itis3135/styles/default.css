@@ -10,6 +10,7 @@ a {
     text-decoration: none;
     font-family: sans-serif;
 }
+
 a:hover {
     color: crimson;
 }
@@ -19,6 +20,7 @@ main {
     max-width: 1200px; 
     width: 90%;
 }
+
 h2 {
     text-align: center;
 }
@@ -37,6 +39,10 @@ figure {
     font-style: italic;
 }
 ul{
+    text-align: left;
+    list-style-position: inside;
+}
+ol{
     text-align: left;
     list-style-position: inside;
 }
