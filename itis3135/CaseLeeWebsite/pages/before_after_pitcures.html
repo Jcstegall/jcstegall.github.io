@@ -6,6 +6,69 @@
     <title>Paintless Dent Repair Before and After Pictures</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <!-- <link rel="stylesheet" href="../styles/gallery.css"> -->
+    <style>
+        /* Toggle Switch Styles */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin: 0 10px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .toggle-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        
+        .image-label {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
@@ -31,13 +94,15 @@
                 <div class="gallery-grids">
                     <!-- Gallery Item 1 -->
                     <div class="gallery-item">
-                        <div class="comparison-wrapper">
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/doorDent.jpeg" alt="Door dent before repair" class="gallery-image">
+                        <div class="comparison-wrapper interactive-comparison">
+                            <img src="../images/beforeAndAfterImages/doorDent.jpeg" alt="Door dent before repair" class="gallery-image before-image" />
+                            <img src="../images/beforeAndAfterImages/doorDentless.jpeg" alt="Door dent after repair" class="gallery-image after-image" style="display:none;" />
+                            <div class="toggle-controls">
                                 <span class="image-label before-label">Before</span>
-                            </div>
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/doorDentless.jpeg" alt="Door dent after repair" class="gallery-image">
+                                <label class="switch">
+                                    <input type="checkbox" class="toggle-checkbox" aria-label="Toggle before and after view">
+                                    <span class="slider"></span>
+                                </label>
                                 <span class="image-label after-label">After</span>
                             </div>
                         </div>
@@ -49,13 +114,15 @@
                     
                     <!-- Gallery Item 2 -->
                     <div class="gallery-item">
-                        <div class="comparison-wrapper">
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/hoodDent.jpeg" alt="Hood dent before repair" class="gallery-image">
+                        <div class="comparison-wrapper interactive-comparison">
+                            <img src="../images/beforeAndAfterImages/hoodDent.jpeg" alt="Hood dent before repair" class="gallery-image before-image" />
+                            <img src="../images/beforeAndAfterImages/hoodDentless.jpeg" alt="Hood dent after repair" class="gallery-image after-image" style="display:none;" />
+                            <div class="toggle-controls">
                                 <span class="image-label before-label">Before</span>
-                            </div>
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/hoodDentless.jpeg" alt="Hood dent after repair" class="gallery-image">
+                                <label class="switch">
+                                    <input type="checkbox" class="toggle-checkbox" aria-label="Toggle before and after view">
+                                    <span class="slider"></span>
+                                </label>
                                 <span class="image-label after-label">After</span>
                             </div>
                         </div>
@@ -67,13 +134,15 @@
                     
                     <!-- Gallery Item 3 -->
                     <div class="gallery-item">
-                        <div class="comparison-wrapper">
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/hailDent.jpeg" alt="Hail damage before repair" class="gallery-image">
+                        <div class="comparison-wrapper interactive-comparison">
+                            <img src="../images/beforeAndAfterImages/hailDent.jpeg" alt="Hail damage before repair" class="gallery-image before-image" />
+                            <img src="../images/beforeAndAfterImages/hailDentless.jpeg" alt="Hail damage after repair" class="gallery-image after-image" style="display:none;" />
+                            <div class="toggle-controls">
                                 <span class="image-label before-label">Before</span>
-                            </div>
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/hailDentless.jpeg" alt="Hail damage after repair" class="gallery-image">
+                                <label class="switch">
+                                    <input type="checkbox" class="toggle-checkbox" aria-label="Toggle before and after view">
+                                    <span class="slider"></span>
+                                </label>
                                 <span class="image-label after-label">After</span>
                             </div>
                         </div>
@@ -85,13 +154,15 @@
                     
                     <!-- Gallery Item 4 -->
                     <div class="gallery-item">
-                        <div class="comparison-wrapper">
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/fenderDent.jpeg" alt="Fender dent before repair" class="gallery-image">
+                        <div class="comparison-wrapper interactive-comparison">
+                            <img src="../images/beforeAndAfterImages/fenderDent.jpeg" alt="Fender dent before repair" class="gallery-image before-image" />
+                            <img src="../images/beforeAndAfterImages/fenderDentless.jpeg" alt="Fender dent after repair" class="gallery-image after-image" style="display:none;" />
+                            <div class="toggle-controls">
                                 <span class="image-label before-label">Before</span>
-                            </div>
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/fenderDentless.jpeg" alt="Fender dent after repair" class="gallery-image">
+                                <label class="switch">
+                                    <input type="checkbox" class="toggle-checkbox" aria-label="Toggle before and after view">
+                                    <span class="slider"></span>
+                                </label>
                                 <span class="image-label after-label">After</span>
                             </div>
                         </div>
@@ -103,13 +174,15 @@
                     
                     <!-- Gallery Item 5 -->
                     <div class="gallery-item">
-                        <div class="comparison-wrapper">
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/bumperDent.jpeg" alt="Bumper dent before repair" class="gallery-image">
+                        <div class="comparison-wrapper interactive-comparison">
+                            <img src="../images/beforeAndAfterImages/bumperDent.jpeg" alt="Bumper dent before repair" class="gallery-image before-image" />
+                            <img src="../images/beforeAndAfterImages/bumperDentless.jpeg" alt="Bumper dent after repair" class="gallery-image after-image" style="display:none;" />
+                            <div class="toggle-controls">
                                 <span class="image-label before-label">Before</span>
-                            </div>
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/bumperDentless.jpeg" alt="Bumper dent after repair" class="gallery-image">
+                                <label class="switch">
+                                    <input type="checkbox" class="toggle-checkbox" aria-label="Toggle before and after view">
+                                    <span class="slider"></span>
+                                </label>
                                 <span class="image-label after-label">After</span>
                             </div>
                         </div>
@@ -121,13 +194,15 @@
                     
                     <!-- Gallery Item 6 -->
                     <div class="gallery-item">
-                        <div class="comparison-wrapper">
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/sidePanelDent.jpeg" alt="Side panel dent before repair" class="gallery-image">
+                        <div class="comparison-wrapper interactive-comparison">
+                            <img src="../images/beforeAndAfterImages/sidePanelDent.jpeg" alt="Side panel dent before repair" class="gallery-image before-image" />
+                            <img src="../images/beforeAndAfterImages/sidePanelDentless.jpeg" alt="Side panel dent after repair" class="gallery-image after-image" style="display:none;" />
+                            <div class="toggle-controls">
                                 <span class="image-label before-label">Before</span>
-                            </div>
-                            <div class="comparison-item">
-                                <img src="../images/beforeAndAfterImages/sidePanelDentless.jpeg" alt="Side panel dent after repair" class="gallery-image">
+                                <label class="switch">
+                                    <input type="checkbox" class="toggle-checkbox" aria-label="Toggle before and after view">
+                                    <span class="slider"></span>
+                                </label>
                                 <span class="image-label after-label">After</span>
                             </div>
                         </div>
@@ -152,5 +227,26 @@
     </footer>
     
     <script src="../scripts/HTMLInclude.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggles = document.querySelectorAll('.toggle-checkbox');
+            
+            toggles.forEach((toggle) => {
+                toggle.addEventListener('change', function() {
+                    const wrapper = this.closest('.comparison-wrapper');
+                    const beforeImg = wrapper.querySelector('.before-image');
+                    const afterImg = wrapper.querySelector('.after-image');
+                    
+                    if (this.checked) {
+                        beforeImg.style.display = 'none';
+                        afterImg.style.display = 'block';
+                    } else {
+                        beforeImg.style.display = 'block';
+                        afterImg.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
