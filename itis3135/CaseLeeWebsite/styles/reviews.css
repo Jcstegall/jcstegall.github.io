@@ -9,6 +9,26 @@
     padding: 20px 0;
 }
 
+/* Responsive adjustments for review form */
+@media (max-width: 768px) {
+    .write-review {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    #reviewForm input,
+    #reviewForm select,
+    #reviewForm textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .writeareview {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
 .review-box {
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -46,4 +66,98 @@
     .reviews-container {
         padding: 20px 15px;
     }
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Review Form Section Styling */
+.write-review {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.write-review h2 {
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#reviewForm label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+#reviewForm input,
+#reviewForm select,
+#reviewForm textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#reviewForm input:focus,
+#reviewForm select:focus,
+#reviewForm textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+#reviewForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#reviewForm button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+#reviewForm button[type="submit"]:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Write a Review Button Styling */
+.writeareview {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.writeareview:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

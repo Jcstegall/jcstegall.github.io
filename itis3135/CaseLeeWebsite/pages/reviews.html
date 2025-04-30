@@ -15,19 +15,43 @@
     </header>
 
     <main>
-        <section id="reviews" class="reviews">
-            <div class="
-            ">
-                <h2>Customer Reviews</h2>
-                <div class="reviews-container" id="reviewsContainer">
-                    <!-- Reviews will be dynamically loaded here  from reviews.js-->
-                </div>
-                <!-- <a href="#" class="google-review-button" id="writeReviewBtn">
-                    Write a Review on Google   will take this out for now because the reviews are manaully 
-                    entered not from google
-                </a> -->
-            </div>
-        </section>
+                <section id="reviews" class="reviews">
+                    <div>
+                        <h2>Customer Reviews</h2>
+                        
+                        <!-- New Button to Scroll to Review Form -->
+                        <button class='writeareview' onclick="document.getElementById('writeReview').scrollIntoView({ behavior: 'smooth' });">
+                            Write a Review
+                        </button>
+                        
+                        <div class="reviews-container" id="reviewsContainer">
+                            <!-- Reviews will be dynamically loaded here from reviews.js -->
+                        </div>
+                    </div>
+                </section>
+
+            <section id="writeReview" class="write-review">
+                <h2>Write a Review</h2>
+                <form id="reviewForm">
+                    <label for="reviewerName">Your Name:</label>
+                    <input type="text" id="reviewerName" required>
+                    
+                    <label for="reviewerRating">Your Rating:</label>
+                    <select id="reviewerRating" required>
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Good</option>
+                        <option value="3">3 - Average</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="1">1 - Terrible</option>
+                    </select>
+                    
+                    <label for="reviewerText">Your Review:</label>
+                    <textarea id="reviewerText" rows="4" required></textarea>
+                    
+                    <button type="submit">Submit Review</button>
+                </form>
+            </section>
+     
     </main>
 
     <footer>
