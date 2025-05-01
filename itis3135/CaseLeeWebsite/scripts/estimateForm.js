@@ -1,4 +1,3 @@
-
 // Use the global jsPDF object from CDN
 
 function validateForm() {
@@ -15,25 +14,6 @@ function validateForm() {
     });
 
     return isValid;
-}
-
-function handleImagePreview(event) {
-    const imagePreview = document.getElementById('imagePreview');
-    imagePreview.innerHTML = '';
-
-    Array.from(event.target.files).forEach((file) => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const preview = document.createElement('div');
-            preview.className = 'preview-item';
-            preview.innerHTML = `
-                <img src="${e.target.result}" alt="Damage preview">
-                <button type="button" class="remove-image">&times;</button>
-            `;
-            imagePreview.appendChild(preview);
-        };
-        reader.readAsDataURL(file);
-    });
 }
 
 function collectFormData() {
@@ -59,8 +39,8 @@ function collectFormData() {
         }
     };
 }
+
 function generatePDF(formData) {
-    // Create new jsPDF instance using the correct namespace
     const doc = new window.jspdf.jsPDF();
     const date = new Date().toLocaleDateString();
 
@@ -96,14 +76,12 @@ function generatePDF(formData) {
     doc.setFontSize(10);
     doc.text('This is an initial estimate request and final pricing may vary upon inspection.', 105, 280, { align: 'center' });
 
-    // Add timestamp to filename
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     doc.save(`CaseLee_PDR_Estimate_${timestamp}.pdf`);
 }
 
 function resetForm() {
     document.getElementById('estimateForm').reset();
-    document.getElementById('imagePreview').innerHTML = '';
 }
 
 async function handleFormSubmit(event) {
@@ -119,12 +97,7 @@ async function handleFormSubmit(event) {
 
 function initializeForm() {
     const form = document.getElementById('estimateForm');
-    const imageUpload = document.getElementById('damageImages');
-    const imagePreview = document.getElementById('imagePreview');
-
-    // Handle image preview
-    imageUpload.addEventListener('change', handleImagePreview);
-
+    
     // Handle form submission
     form.addEventListener('submit', handleFormSubmit);
 }
