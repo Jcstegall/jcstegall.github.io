@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paintless Dent Repair Contact</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/estimate-form.css">
 </head>
 <body>
 
@@ -13,6 +14,98 @@
     </header>
 
     <main>
+        <div class="estimate-form-container">
+            <form id="estimateForm" class="estimate-form">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>Create a pdf to send us</h3>
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder="Email Address">
+                    </div>
+                </div>
+        
+                <!-- Vehicle Information -->
+                <div class="form-section">
+                    <h3>Vehicle Details</h3>
+                    <div class="form-group">
+                        <input type="text" id="carYear" name="carYear" required placeholder="Vehicle Year">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="carMake" name="carMake" required placeholder="Car Make">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="carModel" name="carModel" required placeholder="Car Model">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="vin" name="vin" placeholder="VIN (Optional)">
+                    </div>
+                </div>
+        
+                <!-- Damage Assessment -->
+                <div class="form-section">
+                    <h3>Damage Details</h3>
+                    <div class="form-group">
+                        <select id="damageType" name="damageType" required>
+                            <option value="">Select Damage Type</option>
+                            <option value="door">Door Dent</option>
+                            <option value="hood">Hood Damage</option>
+                            <option value="hail">Hail Damage</option>
+                            <option value="bumper">Bumper Damage</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="damageSize" name="damageSize" required>
+                            <option value="">Select Dent Size</option>
+                            <option value="small">Small (Quarter size or smaller)</option>
+                            <option value="medium">Medium (Golf ball to tennis ball)</option>
+                            <option value="large">Large (Larger than tennis ball)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="damageDescription" name="damageDescription" required 
+                            placeholder="Please describe the damage in detail"></textarea>
+                    </div>
+                </div>
+        
+                <!-- Image Upload -->
+                <div class="form-section">
+                    <h3>Upload Images</h3>
+                    <div class="form-group">
+                        <div class="image-upload-container">
+                            <input type="file" id="damageImages" name="damageImages" 
+                                multiple accept="image/*" class="image-upload">
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Preferred Contact and Schedule -->
+                <div class="form-section">
+                    <h3>Preferences</h3>
+                    <div class="form-group">
+                        <select id="preferredContact" name="preferredContact" required>
+                            <option value="">Preferred Contact Method</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                            <option value="text">Text Message</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Generate Estimate PDF</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Reset Form</button>
+                </div>
+            </form>
+        </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -30,19 +123,19 @@
                 </div>
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                        <input type="text" id="contactname" name="name" required placeholder="Your Name">
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                        <input type="tel" id="contactphone" name="phone" required placeholder="Phone Number">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="carMake" name="carMake" required placeholder="Car Make">
+                        <input type="text" id="contactcarMake" name="carMake" required placeholder="Car Make">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="carModel" name="carModel" required placeholder="Car Model">
+                        <input type="text" id="contactcarModel" name="carModel" required placeholder="Car Model">
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" required placeholder="Describe the damage"></textarea>
+                        <textarea id="contactmessage" name="message" required placeholder="Describe the damage"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="images">Upload Images:</label>
@@ -54,11 +147,18 @@
         </div>
     </section>
 
+
     </main>
 
     <footer>
         <div data-include="../components/footer.html"></div>
     </footer>
-      <script src="../scripts/HTMLInclude.min.js"></script>
+    <script src="../scripts/HTMLInclude.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Create window.jspdf object
+        window.jspdf = window.jspdf || {};
+    </script>
+    <script src="../scripts/estimateForm.js"></script>
 </body>
 </html>

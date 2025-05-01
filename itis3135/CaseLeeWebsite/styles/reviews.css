@@ -69,9 +69,11 @@
 }
 
 h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
     text-align: center;
 }
-
 /* Review Form Section Styling */
 .write-review {
     max-width: 800px;
@@ -82,7 +84,7 @@ h2 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.write-review h2 {
+.write-review {
     color: #333;
     margin-bottom: 25px;
     text-align: center;
