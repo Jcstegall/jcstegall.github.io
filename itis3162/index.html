@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Julian Stegall's ITIS 3162 Blog</title>
+    <style>
+        :root {
+            --primary: #3949ab;
+            --secondary: #64b5f6;
+            --bg: #f6f8fa;
+            --card: #fff;
+            --heading: #22223b;
+            --text: #33385a;
+            --accent: #ffc107;
+        }
+        html, body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: var(--primary);
+            color: #fff;
+            padding: 1.1rem 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: .06em;
+            box-shadow: 0 1px 8px rgba(60,70,130,0.12);
+        }
+        main {
+            max-width: 900px;
+            width: 96vw;
+            margin: 2.5rem auto 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.3rem;
+        }
+        .about-card {
+            background: var(--card);
+            box-shadow: 0 8px 32px rgba(64,94,186, 0.10);
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            gap: 2rem;
+        }
+        .about-avatar {
+            flex: 0 0 auto;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--secondary);
+            background: var(--card);
+            box-shadow: 0 4px 24px rgba(64,94,186,0.10);
+        }
+        .about-bio {
+            flex: 1 1 auto;
+        }
+        .about-bio h2 {
+            margin: 0 0 0.4em 0;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--heading);
+        }
+        .about-bio p {
+            margin: 0.2em 0 0 0;
+            line-height: 1.65;
+        }
+        section.blog-section {
+            background: var(--card);
+            box-shadow: 0 2px 12px rgba(60,70,130,0.07);
+            border-radius: 1.3rem;
+            padding: 2rem;
+        }
+        .blog-section h2 {
+            font-size: 1.35rem;
+            margin: 0 0 1em 0;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.03em;
+        }
+        .blog-post {
+            margin-bottom: 2rem;
+        }
+        .blog-post h3 {
+            margin: 0 0 0.5em 0;
+            color: var(--secondary);
+        }
+        .blog-post time {
+            font-size: 0.95em;
+            color: #607d8b;
+            margin-bottom: 0.6em;
+            display: block;
+        }
+        @media (max-width: 700px) {
+            .about-card {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding: 1.2rem;
+                gap: 1rem;
+            }
+            .about-avatar {
+                width: 80px;
+                height: 80px;
+            }
+            main {
+                width: 98vw;
+                margin: 1.2rem auto;
+                gap: 1.2rem;
+            }
+            section.blog-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Julian Stegall &mdash; ITIS 3162 Projects & Blog
+    </header>
+    <main>
+        <!-- About Me Section -->
+        <section class="about-card">
+            <img src="../itis3135/images/PicOfMe.jpg" alt="Julian Stegall headshot" class="about-avatar"/>
+            <div class="about-bio">
+                <h2>About Me</h2>
+                <p>
+                    Hi, I'm Julian Stegall, a senior at UNC Charlotte deeply interested in data science and its power to uncover patterns, solve problems, and improve the world.
+                    My academic path has taken me through computer science and statistics, and I've especially enjoyed courses in Python programming, statistics, and databases.
+                </p>
+                <p>
+                    I'm eager to grow my skills in real-world data analysis, machine learning, and effective data storytelling. My goal in this class is to learn the practical tools and best practices of a modern data scientist&mdash;from data cleaning and visualization, to model building and communicating insights.
+                </p>
+                <p>
+                    When not working with data, I love nature, climbing, hiking, biking, and sharing life with others. I'm excited to document my journey and projects here!
+                </p>
+            </div>
+        </section>
+
+        <!-- Blog Posts Section -->
+        <section class="blog-section">
+            <h2>Blog</h2>
+            <div class="blog-post">
+                <h3>Welcome to My Project Blog!</h3>
+                <time datetime="2024-06-04">June 4, 2024</time>
+                <p>
+                    This will be where I share updates, lessons learned, and thoughts about the projects I tackle in ITIS 3162. Stay tuned for project writeups and insights as the semester unfolds.
+                </p>
+            </div>
+            <!-- Add new blog-post divs above this line as you write more! -->
+        </section>
+    </main>
+</body>
+</html>
