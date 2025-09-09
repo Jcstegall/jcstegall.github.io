@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 1 Blog</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --card: #12161b;
+      --text: #e6edf3;
+      --muted: #9aa4af;
+      --accent: #7cc0ff;
+      --link: #7cc0ff;
+      --border: #1f262e;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+    header h1 {
+      margin: 0 0 .5rem;
+      font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+      letter-spacing: .2px;
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+    article {
+      margin-top: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+    }
+    h2 {
+      margin: 1.5rem 0 .5rem;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--accent);
+      padding-left: .6rem;
+    }
+    p, li {
+      color: var(--text);
+    }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem .9rem;
+      background: #0f1720;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+    }
+    .visual {
+      margin-top: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+    .visual iframe {
+      width: 100%;
+      height: 720px;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+    footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+  </style>
+<style>
+  .codebox {
+    background: #171b22;
+    color: #b5cef7;
+    border-radius: 7px;
+    border: 1px solid #293241;
+    font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+    font-size: 1em;
+    padding: 1.1em 1.2em;
+    margin: 1em 0 1.5em 0;
+    overflow-x: auto;
+    white-space: pre;
+    box-shadow: 0 1px 6px #252d376e;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Project 1 — Build, Explore, and Visualize</h1>
+      <p class="meta">
+        <span>Course: ITIS 3162</span>
+        <span>Author: J. C. Stegall</span>
+      </p>
+    </header>
+
+    <article>
+<!-- BEGIN Project1.html sections inserted below -->
+
+<h1>Project 1: Pace vs. Consistency: A Monaco Grand Prix</h1>
+
+<h2>Introduction</h2>
+<p>
+This project investigates the role of lap time consistency in Formula 1 race outcomes, moving beyond the traditional focus on raw pace.
+</p>
+<p>
+<strong>Problem:</strong> In Formula 1, raw speed is often seen as the primary indicator of performance, but race outcomes are determined over many laps where consistency is crucial. The influence of driver consistency, independent of the car's absolute pace, is not always clearly quantified.
+</p>
+<p>
+<strong>Central Question:</strong> To what extent does lap time consistency, independent of raw pace, predict a driver's final race result in Formula 1?
+</p>
+<p>
+<strong>Hypothesis:</strong> Drivers with lower lap time variance (higher consistency) are more likely to achieve a better finishing position than their car's raw pace or starting position might otherwise suggest.
+</p>
+
+<h2>Data Introduction</h2>
+<p>
+The data for this analysis was sourced programmatically using the fastf1 Python library, which provides access to official F1 timing data and telemetry.<br>
+Source: <a href="https://docs.fastf1.dev">fastf1 Python Library</a>.
+</p>
+<p>
+About the Data: The dataset comprises detailed lap-by-lap information from a single event: the 2024 Monaco Grand Prix. This race was selected because it is a track that is known for not having many passes and a better prediction of raw driver speed.
+</p>
+<ul>
+  <li><strong>Driver:</strong> The driver's three-letter abbreviation (e.g., 'VER').</li>
+  <li><strong>LapTime:</strong> The duration of each lap.</li>
+  <li><strong>PitInTime / PitOutTime:</strong> Timestamps for pit entry/exit, used for filtering.</li>
+</ul>
+
+<h2>Pre-processing the Data</h2>
+<p>The process of cleaning the data so it can be usable.</p>
+<p>A multi-step pre-processing workflow was essential to isolate representative lap times by removing outliers.</p>
+
+<ol>
+<li>
+  <strong>Load Session Data:</strong> The race session for the 2024 Monaco Grand Prix was loaded from Fastf1. This step is the foundation of the entire project because if not done properly you could have the entire wrong dataset, or not all the required data for the analysis. The data from the fastf1 api is in sql format, so importing it as a mysql file is the best to use from.
+  <div class="codebox">
+# Import necessary libraries
+import fastf1 as ff1
+import pandas as pd
+
+# Caching stores data locally
+ff1.Cache.enable_cache('../datasets') 
+
+# Load the data for the 2024 Monaco Grand Prix race session
+session = ff1.get_session(2024, 'Monaco', 'R')
+session.load()
+
+# Extract the lap-by-lap data and the final race results into separate variables
+laps = session.laps
+results = session.results
+  </div>
+</li>
+
+<li>
+  <strong>Cleaning The Data:</strong> The raw race data does not share the whole story as it has inconsistencies and is not fully representable of the drivers pace. First laps, pit in/out laps, and laps under safetly car are all outliers that misrepresent the racing data. By filtering these outliers, we can get a "clean" dataset that more accuratly represents the drivers performance.
+  <div class="codebox">
+
+# Use pick_quicklaps() to remove outliers like pit laps, first lap, and laps under safety car.
+# A threshold of 1.07 means we only keep laps that are within 107% of each driver's fastest lap.
+cleaned_laps = laps.pick_quicklaps(threshold=1.07)
+
+# Convert the 'LapTime' column (a timedelta object) to total seconds for statistical analysis.
+cleaned_laps = cleaned_laps.copy() 
+cleaned_laps['LapTimeSeconds'] = cleaned_laps['LapTime'].dt.total_seconds()
+
+  </div>
+</li>
+
+<li>
+  <strong>Calculating the data:</strong> With the now, clean dataset we can perform calculation to the data. This step uses the groupby() to find all the clean laps and calculate the mean (average pace), standard deviation (a measure of variance), and the Coefficient of Variation (CV). The CV is the most important as it shows the pace of each car on equal terms so it is a fair comparison.
+  <div class="codebox">
+# Group the data by 'Driver' and calculate the mean and standard deviation of the clean lap times
+driver_stats = cleaned_laps.groupby('Driver')['LapTimeSeconds'].agg(['mean', 'std']).reset_index()
+
+# Calculate the Coefficient of Variation (CV) and add it as a new column.
+# CV = (Standard Deviation / Mean) * 100
+driver_stats['CV'] = (driver_stats['std'] / driver_stats['mean']) * 100
+  </div>
+</li>
+
+<li>
+  <strong>Combining data into one table:</strong> This step is important because it is not combinging the driver stats table with the results table. From merging them, I created a single, comprehensive table that can be used to directly compare the new metrics with the outcomes of the race.
+  <div class="codebox">
+# Select only the columns you need from the results DataFrame.
+race_results = results
+
+# Merge the calculated stats with the race results using the driver abbreviation.
+final_table = pd.merge(
+    left=race_results, 
+    right=driver_stats, 
+    left_on='Abbreviation', 
+    right_on='Driver'
+)
+
+# Rename the columns for a cleaner, more readable table.
+final_table = final_table.rename(columns={
+    'TeamName': 'Team',
+    'GridPosition': 'Grid Position',
+    'Position': 'Final Position',
+    'mean': 'Mean Lap Time (s)',
+    'std': 'Std. Deviation (s)',
+    'CV': 'Coefficient of Variation (%)'
+})
+
+# Sort the table by the final race position.
+final_table = final_table.sort_values(by='Final Position')
+
+# Select and reorder the columns to match the report's format.
+final_table = final_table
+
+# Display the final table. Using.to_string() ensures the full table is printed.
+print(final_table.to_string())
+
+
+#Second, Simplified Table 
+
+# Get only relevant info
+driver_info = results[['Abbreviation', 'BroadcastName', 'ClassifiedPosition']]
+
+# Merge to add "BroadcastName" to the summary table
+simple_table = pd.merge(
+    final_table,
+    driver_info,
+    left_on='Driver',
+    right_on='Abbreviation'
+)
+
+# Select and order the desired columns
+simple_table = simple_table[[
+    'Driver',                  # Driver ID
+    'FullName',           # Driver name
+    'Grid Position',        # Grid position
+    'Final Position',      # Final position
+    'Mean Lap Time (s)',       # Mean lap time
+    'Std. Deviation (s)',      # Lap time deviation
+    'Coefficient of Variation (%)'  # CV
+]]
+
+# Rename columns for the simplified output
+simple_table = simple_table.rename(columns={
+    'Driver': 'DriverID',
+    'FullName': 'Driver Name',
+    'GridPosition': 'Starting Position',
+    'Mean Lap Time (s)': 'Mean',
+    'Std. Deviation (s)': 'Deviation',
+    'Coefficient of Variation (%)': 'CV'
+})
+#print the simplified table
+print("\n\n--- Simplified Statistics Table ---")
+print(simple_table.to_string(index=False))
+  </div>
+</li>
+</ol>
+
+<h2>Data Understanding &amp; Visualization</h2>
+<p>To understand the data, visualations and descriptive analysis must be made. Using Matplotlib and Seaborn will help this process.</p>
+<p>
+This graph uses the table above, which contains lap-by-lap data from the 2024 Monaco Grand Prix. The first step is to clean the data by filtering out any drivers who did not finish the race. From this cleaned dataset, we calculate two key performance indicators for each driver:
+</p>
+<ul>
+  <li>Mean Lap Time: To measure their overall pace.</li>
+  <li>Coefficient of Variation: To measure their lap time consistency</li>
+</ul>
+<p>
+The scatterplot visualizes the relationship between pace and consistency.<br>
+<strong>Pace (Y-axis):</strong> Lower on the chart means a faster average lap time.<br>
+<strong>Consistency (X-axis):</strong> Further to the left means more consistent lap times.
+</p>
+<p>
+My hypothesis stated that a more consistant(lower CV) would lead to a faster lap pace. According to the data, my prediction was incorrect and it shows a clear trend to a higher consistancy leading to a slower lap pace and a worse consistancy leading to a faster lap pace.
+</p>
+<div class="codebox">
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Filter to exclude DNFs (Status != 'Retired')
+finishers = final_table[final_table['Status'] != 'Retired'].copy()
+
+# Plot: CV vs. Mean Lap Time
+fig, ax = plt.subplots(figsize=(10, 8))
+sns.scatterplot(data=finishers, x='Coefficient of Variation (%)', y='Mean Lap Time (s)', hue='Team', s=150)
+ax.set_title('Consistency (CV) vs. Overall Lap Pace - 2023 Japanese Grand Prix (Finishers Only)')
+ax.set_xlabel('Coefficient of Variation (%) - Lower = More Consistent →')
+ax.set_ylabel('Mean Lap Time (s) - Lower = Faster Pace')
+
+# Add trend line for correlation
+sns.regplot(data=finishers, x='Coefficient of Variation (%)', y='Mean Lap Time (s)', scatter=False, color='black', ax=ax)
+
+# Annotations with driver codes
+for i in range(len(finishers)):
+    ax.text(finishers['Coefficient of Variation (%)'].iloc[i] + 0.05, 
+            finishers['Mean Lap Time (s)'].iloc[i], 
+            finishers['Driver'].iloc[i], fontsize=9)
+
+plt.show()
+</div>
+<img src="Consistency_vs_Pace.png" alt="Consistency vs. Pace" class="visual">
+
+<h2>Storytelling</h2>
+<p>
+My initial hypothesis that consistent driving leads to better results was proven incorrect. The visualization for the 2024 Monaco Grand Prix showed a clear correlation where a faster lap time meant to less consistancy(higher CV). This suggests top tier f1 racing performance is not about maintaining a consistant fast pace, but more about strategic variation. Using slower laps to conserve resourses and faster push laps to increase overall pace, leads to a lap time variance that is higher. Yes, I was able to answer my initial question although it was unexpected. From the analysis of the Monaco GP, a low CV(high consistancy) was linked to a slower lap pace. The main takeaway from the results is that strategic inconsistancy instead of raw consistancy appears to be more valuable.
+</p>
+
+<h2>Impact Section</h2>
+<p>
+The impact from this project compats the primary goal in most motorsports which is to keep consistancy. The results encourage a shift to strategic stints of driving soft and conserving resources for fast laps of pushing for quicker times. This view provides a more nuanced method for performance.
+</p>
+<p>
+Possible harm from the visualizations could be from the misinterpretation or oversimplification without knowing the context of the data. Without proper context the results could be interpreted as being inconsistant is always better. This study is also from one a single race so it could be easily generlized, but each race is different and will show slightly different outcomes.
+</p>
+<p>
+This analysis, as for every race will miss nuance of infinite outside variables such as race traffic, car malfunctions, weather conditions, or other strategic data.
+</p>
+
+<h2>References</h2>
+<ul>
+  <li>Jupyter notebook templete created by GPT-4.1 in QODO</li>
+  <li>FastF1 documentation: <a href="https://docs.fastf1.dev">fastf1.dev</a></li>
+  <li>Google Gemini 2.5 Pro (help in interpretation and data understanding)</li>
+</ul>
+
+<h2>Appendix</h2>
+<a href="/itis3162/pages/Project1/Code/">Go to Project Data Folder</a>
+<div class="codebox">
+pip install fastf1
+
+# Import necessary libraries
+import fastf1 as ff1
+import pandas as pd
+
+# Caching stores data locally
+ff1.Cache.enable_cache('../../datasets') 
+
+# Load the data for the 2024 Monaco Grand Prix race session
+session = ff1.get_session(2024, 'Monaco', 'R')
+session.load()
+
+# Extract the lap-by-lap data and the final race results into separate variables
+laps = session.laps
+results = session.results
+
+# Use pick_quicklaps() to remove outliers like pit laps, first lap, and laps under safety car.
+# A threshold of 1.07 means we only keep laps that are within 107% of each driver's fastest lap.
+cleaned_laps = laps.pick_quicklaps(threshold=1.07)
+
+# Convert the 'LapTime' column (a timedelta object) to total seconds for statistical analysis.
+cleaned_laps = cleaned_laps.copy() 
+cleaned_laps['LapTimeSeconds'] = cleaned_laps['LapTime'].dt.total_seconds()
+
+# Group the data by 'Driver' and calculate the mean and standard deviation of the clean lap times
+driver_stats = cleaned_laps.groupby('Driver')['LapTimeSeconds'].agg(['mean', 'std']).reset_index()
+
+# Calculate the Coefficient of Variation (CV) and add it as a new column.
+# CV = (Standard Deviation / Mean) * 100
+driver_stats['CV'] = (driver_stats['std'] / driver_stats['mean']) * 100
+
+# Select only the columns you need from the results DataFrame.
+race_results = results
+
+# Merge the calculated stats with the race results using the driver abbreviation.
+final_table = pd.merge(
+    left=race_results, 
+    right=driver_stats, 
+    left_on='Abbreviation', 
+    right_on='Driver'
+)
+
+# Rename the columns for a cleaner, more readable table.
+final_table = final_table.rename(columns={
+    'TeamName': 'Team',
+    'GridPosition': 'Grid Position',
+    'Position': 'Final Position',
+    'mean': 'Mean Lap Time (s)',
+    'std': 'Std. Deviation (s)',
+    'CV': 'Coefficient of Variation (%)'
+})
+
+# Sort the table by the final race position.
+final_table = final_table.sort_values(by='Final Position')
+
+# Select and reorder the columns to match the report's format.
+final_table = final_table
+
+# Display the final table. Using.to_string() ensures the full table is printed.
+print(final_table.to_string())
+
+
+# --- Create the Second, Simplified Table ---
+
+# Get only relevant info (BroadcastName and ClassifiedPosition) from results DataFrame
+driver_info = results[['Abbreviation', 'BroadcastName', 'ClassifiedPosition']]
+
+# Merge to add "BroadcastName" to the summary table
+simple_table = pd.merge(
+    final_table,
+    driver_info,
+    left_on='Driver',
+    right_on='Abbreviation'
+)
+
+# Select and order the desired columns
+simple_table = simple_table[[
+    'Driver',                  # Driver ID
+    'FullName',           # Driver broadcast name
+    'Grid Position',
+    'Final Position',      # Classified position
+    'Mean Lap Time (s)',       # Mean lap time
+    'Std. Deviation (s)',      # Lap time deviation
+    'Coefficient of Variation (%)'  # CV
+]]
+
+# Rename columns for the simplified output
+simple_table = simple_table.rename(columns={
+    'Driver': 'DriverID',
+    'BroadcastName': 'BroadcastName',
+    'ClassifiedPosition': 'Classified Position',
+    'Mean Lap Time (s)': 'Mean',
+    'Std. Deviation (s)': 'Deviation',
+    'Coefficient of Variation (%)': 'CV'
+})
+
+print("\n\n--- Simplified Statistics Table ---")
+print(simple_table.to_string(index=False))
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Filter to exclude DNFs (Status != 'Retired')
+finishers = final_table[final_table['Status'] != 'Retired'].copy()
+
+# Plot: CV vs. Mean Lap Time
+fig, ax = plt.subplots(figsize=(10, 8))
+sns.scatterplot(data=finishers, x='Coefficient of Variation (%)', y='Mean Lap Time (s)', hue='Team', s=150)
+ax.set_title('Consistency (CV) vs. Overall Lap Pace - 2023 Japanese Grand Prix (Finishers Only)')
+ax.set_xlabel('Coefficient of Variation (%) - Lower = More Consistent →')
+ax.set_ylabel('Mean Lap Time (s) - Lower = Faster Pace')
+
+# Add trend line for correlation
+sns.regplot(data=finishers, x='Coefficient of Variation (%)', y='Mean Lap Time (s)', scatter=False, color='black', ax=ax)
+
+# Annotations with driver codes
+for i in range(len(finishers)):
+    ax.text(finishers['Coefficient of Variation (%)'].iloc[i] + 0.05, 
+            finishers['Mean Lap Time (s)'].iloc[i], 
+            finishers['Driver'].iloc[i], fontsize=9)
+
+plt.show()
+</div>
+
+<!-- END Project1.html sections inserted above -->
+    </article>
+  </div>
+</body>
+</html>
