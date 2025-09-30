@@ -198,6 +198,7 @@ data = data.dropna(subset=["survived"])
 
 data.head()
 </div>
+<img src="images/3_1.png">
 
 <h2>4. Data Understanding / Visualization</h2>
 <p>
@@ -236,7 +237,9 @@ plt.title("Age Distribution by Survival (0=Did not survive, 1=Survived)")
 plt.legend(title="Survived", labels=["No", "Yes"])
 plt.show()
 </div>
-<img>
+<img src="images/4_1.png">
+<img src="images/4_2.png">
+<img src="images/4_3.png">
 <img>
 <img>
 <p>
@@ -310,9 +313,11 @@ for name, model in models.items():
     print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
     print("\n")
 </div>
-<img>
+<img src="images/6_1.png">
+<img src="images/6_2.png">
+<img src="images/6_3.png">
 
-<p>talk about accuracy scores from the models </p>
+<p>All the models performed similarly. They all got around 80% accuracy from a test size of 30% and a random state of 40.</p>
 
 <h2>7. Storytelling</h2>
 
