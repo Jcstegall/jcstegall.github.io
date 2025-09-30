@@ -212,42 +212,33 @@ We will visualize the dataset to explore:
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Set up the plotting style
-plt.style.use('default')
-sns.set_palette("husl")
+# Survival by gender
+sns.countplot(x="sex", hue="survived", data=data)
+plt.xlabel("Sex (0=Female, 1=Male)")
+plt.ylabel("Count")
+plt.title("Survival by Gender (0=Did not survive, 1=Survived)")
+plt.legend(title="Survived", labels=["No", "Yes"])
+plt.show()
 
-# Create subplots for multiple visualizations
-fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+# Survival by class
+sns.countplot(x="pclass", hue="survived", data=data)
+plt.xlabel("Passenger Class")
+plt.ylabel("Count")
+plt.title("Survival by Class (0=Did not survive, 1=Survived)")
+plt.legend(title="Survived", labels=["No", "Yes"])
+plt.show()
 
-# 1. Survival by Gender
-survival_by_sex = data.groupby('sex')['survived'].mean()
-axes[0, 0].bar(['Female', 'Male'], survival_by_sex.values, color=['pink', 'lightblue'])
-axes[0, 0].set_title('Survival Rate by Gender')
-axes[0, 0].set_ylabel('Survival Rate')
-
-# 2. Survival by Class
-survival_by_class = data.groupby('pclass')['survived'].mean()
-axes[0, 1].bar(['1st Class', '2nd Class', '3rd Class'], survival_by_class.values, color=['gold', 'silver', 'brown'])
-axes[0, 1].set_title('Survival Rate by Passenger Class')
-axes[0, 1].set_ylabel('Survival Rate')
-
-# 3. Age Distribution by Survival
-axes[1, 0].hist(data[data['survived'] == 0]['age'], alpha=0.7, label='Did not survive', bins=30, color='red')
-axes[1, 0].hist(data[data['survived'] == 1]['age'], alpha=0.7, label='Survived', bins=30, color='green')
-axes[1, 0].set_title('Age Distribution by Survival')
-axes[1, 0].set_xlabel('Age')
-axes[1, 0].set_ylabel('Frequency')
-axes[1, 0].legend()
-
-# 4. Correlation Heatmap
-correlation_matrix = data.corr()
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0, ax=axes[1, 1])
-axes[1, 1].set_title('Feature Correlation Heatmap')
-
-plt.tight_layout()
+# Age distribution
+sns.histplot(data=data, x="age", hue="survived", bins=30, kde=True)
+plt.xlabel("Age")
+plt.ylabel("Count")
+plt.title("Age Distribution by Survival (0=Did not survive, 1=Survived)")
+plt.legend(title="Survived", labels=["No", "Yes"])
 plt.show()
 </div>
-
+<img>
+<img>
+<img>
 <p>
 The visualizations reveal several key insights:
 </p>
@@ -258,9 +249,9 @@ The visualizations reveal several key insights:
   <li><strong>Correlations:</strong> Strong negative correlation between being male and survival, positive correlation between higher class and survival</li>
 </ul>
 
-<h2>5. Machine Learning Models</h2>
+<h2>5. Modeling</h2>
 <p>
-We'll implement and compare multiple classification algorithms to predict survival:
+These are the three classification models tested: 
 <ul>
     <li>Logistic Regression (linear baseline)</li>
     <li>Decision Tree (non-linear, interpretable)</li>
@@ -270,218 +261,90 @@ We'll implement and compare multiple classification algorithms to predict surviv
 
 <div class="codebox">
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
-# Prepare features and target
-X = data.drop(['survived'], axis=1)
-y = data['survived']
+# Features and target
+X = data.drop("survived", axis=1)
+y = data["survived"]
 
-# Split the data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=40)
 
 # Initialize models
-models = {
-    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-    'Logistic Regression': LogisticRegression(random_state=42),
-    'Support Vector Machine': SVC(random_state=42)
-}
+log_model = LogisticRegression(max_iter=500)
+tree_model = DecisionTreeClassifier(random_state=42)
+forest_model = RandomForestClassifier(random_state=42)
 
-# Train and evaluate models
-results = {}
-for name, model in models.items():
-    # Train the model
-    model.fit(X_train, y_train)
-    
-    # Make predictions
-    y_pred = model.predict(X_test)
-    
-    # Calculate accuracy
-    accuracy = accuracy_score(y_test, y_pred)
-    results[name] = accuracy
-    
-    print(f"\n{name} Results:")
-    print(f"Accuracy: {accuracy:.4f}")
-    print("\nClassification Report:")
-    print(classification_report(y_test, y_pred))
+# Fit models
+log_model.fit(X_train, y_train)
+tree_model.fit(X_train, y_train)
+forest_model.fit(X_train, y_train)
+
 </div>
 
-<h2>6. Model Performance Comparison</h2>
-<p>The model will be evaluated by using: </p> 
+<h2>6. Evaluation</h2>
+<p>The model will be evaluated by using: 
 <ul>
     <li>Accuracy</li>
     <li>Precision, Recall, F1-score</li>
     <li>Confusion Matrix</li>
 </ul>
-
+</p>
 
 
 <div class="codebox">
-# Create a comparison chart
-model_names = list(results.keys())
-accuracies = list(results.values())
+from sklearn.metrics import classification_report, confusion_matrix
 
-plt.figure(figsize=(10, 6))
-bars = plt.bar(model_names, accuracies, color=['forestgreen', 'royalblue', 'orange'])
-plt.title('Model Performance Comparison')
-plt.ylabel('Accuracy')
-plt.ylim(0, 1)
+models = {
+    "Logistic Regression": log_model,
+    "Decision Tree": tree_model,
+    "Random Forest": forest_model
+}
 
-# Add accuracy labels on bars
-for bar, accuracy in zip(bars, accuracies):
-    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.01, 
-             f'{accuracy:.3f}', ha='center', va='bottom')
-
-plt.tight_layout()
-plt.show()
-
-# Print best model
-best_model = max(results, key=results.get)
-print(f"\nBest performing model: {best_model} with accuracy: {results[best_model]:.4f}")
+for name, model in models.items():
+    print(f"--- {name} ---")
+    y_pred = model.predict(X_test)
+    print(classification_report(y_test, y_pred))
+    print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+    print("\n")
 </div>
+<img>
 
-<h2>7. Feature Importance Analysis</h2>
-<p>
-Using the Random Forest model to understand which features are most important for predicting survival:
-</p>
+<p>talk about accuracy scores from the models </p>
 
-<div class="codebox">
-# Get feature importance from Random Forest
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
-rf_model.fit(X_train, y_train)
+<h2>7. Storytelling</h2>
 
-feature_importance = pd.DataFrame({
-    'feature': X.columns,
-    'importance': rf_model.feature_importances_
-}).sort_values('importance', ascending=False)
-
-# Plot feature importance
-plt.figure(figsize=(10, 6))
-sns.barplot(data=feature_importance, x='importance', y='feature', palette='viridis')
-plt.title('Feature Importance for Titanic Survival Prediction')
-plt.xlabel('Importance Score')
-plt.tight_layout()
-plt.show()
-
-print("Feature Importance Ranking:")
-for i, row in feature_importance.iterrows():
-    print(f"{row['feature']}: {row['importance']:.4f}")
-</div>
-
-<h2>8. Results and Insights</h2>
-<p>
-<strong>Model Performance:</strong>
-</p>
+<p>The models reveal that:  
 <ul>
-  <li>Random Forest achieved the highest accuracy at approximately 82-85%</li>
-  <li>Logistic Regression performed similarly well with around 80-83% accuracy</li>
-  <li>Support Vector Machine showed competitive performance at 79-82% accuracy</li>
+    <li>Women had a much higher survival rate than men</li>
+    <li>First-class passengers survived at higher rates than third-class passengers.</li>
+    <li>Younger passengers had a better chance of survival</li>
 </ul>
-
-<p>
-<strong>Key Findings:</strong>
 </p>
+
+
+<h2>8. Impact Section</h2>
+<p>
+Even though this is a historical dataset, the implications extend to real-world applications:  
+
 <ul>
-  <li><strong>Gender was the most important predictor:</strong> Being female significantly increased survival chances</li>
-  <li><strong>Passenger class was crucial:</strong> Higher class passengers had better survival rates</li>
-  <li><strong>Age played a role:</strong> Younger passengers, especially children, had higher survival rates</li>
-  <li><strong>Fare amount correlated with survival:</strong> Higher fare (often associated with better accommodations) improved survival odds</li>
+  <li>Social impact: Highlights class and gender inequality during disasters. </li>
+  <li>Ethical impact: Predictive models should not be used to justify discriminatory practices.  </li>
+  <li>Practical impact: Understanding survival factors can inform future safety policies.</li>
 </ul>
-
-<h2>9. Conclusions</h2>
-<p>
-This analysis successfully demonstrates that machine learning can effectively predict Titanic passenger survival with over 80% accuracy. The "women and children first" maritime protocol is clearly reflected in the data, with gender being the strongest predictor of survival.
 </p>
 
-<p>
-<strong>Key Takeaways:</strong>
-</p>
-<ul>
-  <li>Social class and gender were the primary determinants of survival</li>
-  <li>The disaster highlighted significant inequalities in safety protocols</li>
-  <li>Machine learning models can effectively capture these historical patterns</li>
-  <li>Random Forest performed best, likely due to its ability to capture complex interactions between features</li>
-</ul>
-
-<h2>10. Future Work</h2>
-<p>
-Potential improvements and extensions:
-</p>
-<ul>
-  <li>Feature engineering: Create new features like family size, title extraction from names</li>
-  <li>Hyperparameter tuning: Optimize model parameters for better performance</li>
-  <li>Ensemble methods: Combine multiple models for improved predictions</li>
-  <li>Cross-validation: More robust model evaluation</li>
-  <li>External data: Incorporate additional historical information about the disaster</li>
-</ul>
-
-<h2>References</h2>
+<h2>9. References</h2>
 <ul>
   <li>Kaggle Titanic Dataset: <a href="https://www.kaggle.com/c/titanic/data">https://www.kaggle.com/c/titanic/data</a></li>
   <li>Scikit-learn Documentation: <a href="https://scikit-learn.org/">https://scikit-learn.org/</a></li>
-  <li>Pandas Documentation: <a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></li>
-  <li>Seaborn Documentation: <a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></li>
+  <li>Jupiter Notebook outline created by Chatgpt GPT-5</li>
 </ul>
 
 <h2>Appendix</h2>
 <a href="https://github.com/Jcstegall/jcstegall.github.io/tree/main/itis3162/pages/Project2">Go to Github Project Folder</a>
-
-<div class="codebox">
-# Complete code for Titanic Survival Prediction
-
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-
-# Load and preprocess data
-data = pd.read_csv("data/titanic.csv")
-
-# Drop unnecessary columns
-data = data.drop(columns=["class", "deck", "embark_town", "alive", "adult_male", "who"])
-
-# Handle missing values
-data["age"] = data["age"].fillna(data["age"].median())
-data["embarked"] = data["embarked"].fillna(data["embarked"].mode()[0])
-
-# Encode categorical variables
-encoder = LabelEncoder()
-for col in ["sex", "embarked"]:
-    data[col] = encoder.fit_transform(data[col])
-
-# Drop rows with missing target
-data = data.dropna(subset=["survived"])
-
-# Prepare features and target
-X = data.drop(['survived'], axis=1)
-y = data['survived']
-
-# Split the data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Train models
-models = {
-    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-    'Logistic Regression': LogisticRegression(random_state=42),
-    'Support Vector Machine': SVC(random_state=42)
-}
-
-# Evaluate models
-for name, model in models.items():
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    print(f"{name} Accuracy: {accuracy:.4f}")
-</div>
 
 <!-- END Project2.html sections inserted above -->
     </article>
