@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 3 Blog</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --card: #12161b;
+      --text: #e6edf3;
+      --muted: #9aa4af;
+      --accent: #7cc0ff;
+      --link: #7cc0ff;
+      --border: #1f262e;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+    header h1 {
+      margin: 0 0 .5rem;
+      font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+      letter-spacing: .2px;
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+    article {
+      margin-top: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+    }
+    h2 {
+      margin: 1.5rem 0 .5rem;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--accent);
+      padding-left: .6rem;
+    }
+    p, li {
+      color: var(--text);
+    }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem .9rem;
+      background: #0f1720;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+    }
+    .visual {
+      margin-top: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+    .visual iframe {
+      width: 100%;
+      height: 720px;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+    footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+  </style>
+<style>
+  .codebox {
+    background: #171b22;
+    color: #b5cef7;
+    border-radius: 7px;
+    border: 1px solid #293241;
+    font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+    font-size: 1em;
+    padding: 1.1em 1.2em;
+    margin: 1em 0 1.5em 0;
+    overflow-x: auto;
+    white-space: pre;
+    box-shadow: 0 1px 6px #252d376e;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="meta">
+        <span>Course: ITIS 3162</span>
+        <span>Author: J. C. Stegall</span>
+      </p>
+    </header>
+
+    <>
+<!-- BEGIN Project2.html sections inserted below -->
+
+<h1>Project 3: Car Price Prediction</h1>
+
+<h2>Problem Statement and the Dataset</h2>
+<p>
+This project tackles a **regression problem**: predicting car prices based on various vehicle characteristics.
+ Predicting car prices is a fundamental problem in the automotive industry, used by dealers, buyers, and sellers to determine 
+ fair market value. Accurate price predictions help:</p>
+<ul>
+  <li>Dealerships set competitive prices</li>
+  <li> Buyers make informed purchasing decisions</li>
+  <li>Sellers understand their vehicle's worth</li>
+</ul>
+<h3>Dataset Overview</h3>
+<p>We use the Kaggle CarPrice_Assignment dataset with 205 car records and 26 features. Key features include:</p>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<p>the dataset contains</p>
+
+<h2>What is Regression and How Does it Work?</h2>
+<h3>Linear Regression</h3>
+<p>Linear Regression is</p>
+
+<h3>Mathematical Formulation</h3>
+<img>
+<p>where <strong>y</strong> is the target variable (price), <strong>X</strong> is the intercept(bias term)<strong>b</strong> is the vector of coefficients, and <strong>n</strong> is the number of features</p>
+
+<h1>Experiment 1</h1>
+<h3>Data Understandning and Initial Exploration</h3>
+<p>
+  Before building model
+</p>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<p>Calculating feature Correlation with price we find that:</p>
+<img>
+
+<img>
+<p>findings from data understanding</p>
+
+<h2>Preprocessing</h2>
+<p>Preprocessing steps:</p>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<p>
+Features this Experiment will focus on
+</p>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<h2>Linear Regression Model</h2>
+<p>model choice</p>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<p>model Coefficients</p>
+
+
+<h2>Evaluation of Experiment 1</h2>
+<p>Experiment 1: linear Regression(All Features)</p>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<img>
+
+
+<h1>Experiment 2</h1>
+<h2>Feature Selection and Ridge Regression</h2>
+<h3></h3>
+<p></p>
+<ol>
+  <li></li>
+  <li></li>
+</ol>
+<p>Why Ridge</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+<p>Top 4 features by correlation</p>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<h2>Experiment 2 Evaluation</h2>
+<ol>
+  <li>Data from exeriment</li>
+</ol>
+
+<ol>
+  <li>1.</li>
+   <li>2. </li>
+</ol>
+
+
+<h1>Experiment 3</h1>
+<h2>Engineered Features in Linear Regression</h2>
+<p>In this experimenet, I'm testing Feature Engineering:</p>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<h2>Evaluation</h2>
+<ol>
+  <li>Data from exeriment</li>
+</ol>
+
+<h3>Experiment 3 outperformed Experiment 1 on both key metrics:</h3>
+<ol>
+  <li>1.</li>
+   <li>2. </li>
+</ol>
+<p></p>
+
+
+<h1>Impact</h1>
+<h2>Positive Impacts</h2>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+<h2>Negative Impacts</h2>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li> </li>
+  <li></li>
+</ol>
+
+<h2>Mitigation Strategies</h2>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+
+<h1>Conclusion</h1>
+<h2>Comparison of All Experiments</h2>
+<p>comparison</p>
+<img>
+<p>Best performing model</p>
+
+<h2>Summary of Experimental Results</h2>
+<h3>Experiment 1: Linear Regression(All Features)</h3>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+<h3>Experiment 2: Ridge Regression(Top 4 Features)</h3>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+<h3>Experiment 1: Linear Regression(Engineered Features)</h3>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<h2>Key Learnings</h2>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </li>
+</ol>
+
+<h2>Future Work</h2>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<h2>References</h2>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
