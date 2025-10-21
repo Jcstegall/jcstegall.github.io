@@ -119,9 +119,6 @@
       </p>
     </header>
 
-    <>
-<!-- BEGIN Project2.html sections inserted below -->
-
 <h1>Project 3: Car Price Prediction</h1>
 
 <h2>Problem Statement and the Dataset</h2>
@@ -137,217 +134,384 @@ This project tackles a **regression problem**: predicting car prices based on va
 <h3>Dataset Overview</h3>
 <p>We use the Kaggle CarPrice_Assignment dataset with 205 car records and 26 features. Key features include:</p>
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Engine Size: Engine displacement in liters</li>
+  <li>Horsepower: Engine power output</li>
+  <li>Curb Weight: Vehicle weight without passengers</li>
+  <li>Fuel Type: Type of fuel (Gas, Diesel)</li>
+  <li>Aspiration: Standard or Turbo</li>
+  <li>Door Number: Number of doors</li>
+  <li>Price: Target variable (what we're predicting)</li>
 </ul>
-<p>the dataset contains</p>
+<p>The dataset contains real car data with prices ranging from approximately 5000 to 45000
+ 45,000</p>
 
 <h2>What is Regression and How Does it Work?</h2>
 <h3>Linear Regression</h3>
-<p>Linear Regression is</p>
+<p>Linear Regression is the simplest and most interpretable regression model. It assumes a linear relationship between features and the target.</p>
 
 <h3>Mathematical Formulation</h3>
-<img>
-<p>where <strong>y</strong> is the target variable (price), <strong>X</strong> is the intercept(bias term)<strong>b</strong> is the vector of coefficients, and <strong>n</strong> is the number of features</p>
+<p>y= B0 +B1x1 + B2x2 + Bnxn </p>
+<p>where <strong>y</strong> is the target variable (price), <strong>B0</strong> is the intercept(bias term)<strong>Bi</strong> is the vector of coefficients, and <strong>n</strong> is the number of features</p>
 
 <h1>Experiment 1</h1>
 <h3>Data Understandning and Initial Exploration</h3>
 <p>
-  Before building model
+  Before building any model, it's crucial to understand the data. I'm exploring:
 </p>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Feature distributions: Are features normally distributed or skewed?</li>
+  <li>Correlations: Which features are most correlated with price?</li>
+  <li>Missing values: Are there any data quality issues?</li>
+  <li>Outliers: Are there unusual data points?</li>
 </ol>
 
 <p>Calculating feature Correlation with price we find that:</p>
-<img>
-
-<img>
-<p>findings from data understanding</p>
+<img src="/itis3162/pages/Project3/images/FeatureCorrelationMatix.png">
+<h3>Key findings from data understanding</h3>
+<p>There was a very strong correlation between the price and engine size, weight, horsepower, fuel type, aspiration, and door number. Using this knowledge we can use feature selection to focus on these highly correlated features.</p>
 
 <h2>Preprocessing</h2>
 <p>Preprocessing steps:</p>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Null Values: This dataset does not have any null values</li>
+  <li>Encoding categorical variables: Convert 'fueltype' and 'aspiration' to numerical values using one-hot encoding</li>
+  <li>Feature scaling: Standardize numerical features to have mean=0 and std=1</li>
+  <li>Train-test split: Use 80-20 split for training and testing</li>
 </ol>
 
 <p>
 Features this Experiment will focus on
 </p>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Engine size: The closest correlation with price at 87%</li>
+  <li>Curbweight: Second closes correlation at 83%</li>
+  <li>fueltype: : Different fuel types affect car pricing significantly. Diesel engines typically have different performance characteristics and costs.</li>
+  <li>aspiration: Turbo engines are performance features that typically increase car value</li>
+  <li>doornumber: Two-door cars (coupes/sports cars) often have different pricing structures than four-door sedans</li>
 </ol>
 
 <h2>Linear Regression Model</h2>
-<p>model choice</p>
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Simple and interpretable</li>
+  <li>Good baseline for regression problems</li>
+  <li>Fast to train</li>
 </ul>
-<p>model Coefficients</p>
 
+<div class="codebox">
+# Train linear regression model
+model_exp1 = LinearRegression()
+model_exp1.fit(X_train_scaled, y_train)
+
+# Make predictions
+y_train_pred = model_exp1.predict(X_train_scaled)
+y_test_pred = model_exp1.predict(X_test_scaled)
+
+print("Model coefficients:")
+for feature, coef in zip(X.columns, model_exp1.coef_):
+    print(f"{feature}: {coef:.2f}")
+print(f"Intercept: {model_exp1.intercept_:.2f}")
+</div>
+<p>Model Coefficients:</p>
+<ul>
+  <li>enginesize: 2690.07</li>
+  <li>horsepower: 2949.50</li>
+  <li>curbweight: 1970.46</li>
+  <li>fueltype_gas: -746.83</li>
+  <li>aspiration_turbo: -557.04</li>
+  <li>doornumber_two: -153.91</li>
+  <li>Intercept: 13223.41</li>
+</ul>
 
 <h2>Evaluation of Experiment 1</h2>
 <p>Experiment 1: linear Regression(All Features)</p>
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Training RMSE: $3303.10</li>
+  <li>Test RMSE: $3662.52</li>
+  <li>Training R²: 0.8171</li>
+  <li>Test R²: 0.8301</li>
+  <li>Training MAE: $2336.07</li>
+  <li>Test MAE: $2655.67</li>
 </ul>
-<img>
+<img src="images/LinearRegressionResults.png">
 
 
 <h1>Experiment 2</h1>
 <h2>Feature Selection and Ridge Regression</h2>
-<h3></h3>
-<p></p>
+<h3>Thought Process</h3>
+<p>In Experiment 1, we used all features. However, not all features may be equally important. I'm testing:</p>
 <ol>
-  <li></li>
-  <li></li>
+  <li>Feature selection: Use only the most correlated features with price</li>
+  <li>Ridge Regression: Add L2 regularization to prevent overfitting</li>
 </ol>
-<p>Why Ridge</p>
+<p>Why Ridge Regression?</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Reduces model complexity by penalizing large coefficients</li>
+  <li>Often improves generalization to test data</li>
 </ul>
-<p>Top 4 features by correlation</p>
+<p>Top 4 features by correlation to price</p>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Engine Size: 0.874145</li>
+  <li>curbweight: 0.835305</li>
+  <li>horsepower: 0.808139</li>
+  <li>aspiration_turbo: 0.177926</li>
 </ol>
+<div class="codebox">
+# Feature selection: keep only top correlated features
+df_exp2 = df.copy()
+feature_cols = ['enginesize', 'horsepower', 'curbweight', 'fueltype', 'aspiration', 'doornumber']
+df_exp2 = df_exp2[feature_cols + ['price']].dropna()
+
+# One-hot encode ALL categorical variables (INCLUDING doornumber!)
+df_exp2 = pd.get_dummies(df_exp2, columns=['fueltype', 'aspiration', 'doornumber'], drop_first=True)
+
+# Select top 4 features by correlation with price
+X_temp = df_exp2.drop('price', axis=1)
+correlations = df_exp2.corr()['price'].drop('price').abs().sort_values(ascending=False)
+top_features = correlations.head(4).index.tolist()
+print("Top 4 features by correlation:")
+print(correlations.head(4))
+
+X_exp2 = df_exp2[top_features]
+y_exp2 = df_exp2['price']
+
+# Split and scale
+X_train_exp2, X_test_exp2, y_train_exp2, y_test_exp2 = train_test_split(
+    X_exp2, y_exp2, test_size=0.2, random_state=42
+)
+
+scaler_exp2 = StandardScaler()
+X_train_exp2_scaled = scaler_exp2.fit_transform(X_train_exp2)
+X_test_exp2_scaled = scaler_exp2.transform(X_test_exp2)
+
+# Train Ridge Regression
+model_exp2 = Ridge(alpha=10.0)
+model_exp2.fit(X_train_exp2_scaled, y_train_exp2)
+
+# Predictions
+y_train_pred_exp2 = model_exp2.predict(X_train_exp2_scaled)
+y_test_pred_exp2 = model_exp2.predict(X_test_exp2_scaled)
+
+# Metrics
+train_rmse_exp2 = np.sqrt(mean_squared_error(y_train_exp2, y_train_pred_exp2))
+test_rmse_exp2 = np.sqrt(mean_squared_error(y_test_exp2, y_test_pred_exp2))
+train_r2_exp2 = r2_score(y_train_exp2, y_train_pred_exp2)
+test_r2_exp2 = r2_score(y_test_exp2, y_test_pred_exp2)
+
+</div>
 
 <h2>Experiment 2 Evaluation</h2>
 <ol>
-  <li>Data from exeriment</li>
+  <li>Training RMSE: $3359.11</li>
+  <li>Test RMSE: $3800.41</li>
+  <li>Training R²: 0.8108</li>
+  <li>Test R²: 0.8170</li>
 </ol>
-
+<p>Decrease in performance from Experiment 1</p>
 <ol>
-  <li>1.</li>
-   <li>2. </li>
+  <li>RMSE increased by $137.89.</li>
+  <li>R^2 increased .8170 </li>
 </ol>
+<p>Taking away some of the features, even thoug they had a lower correlation starved the model of information.</p>
 
 
 <h1>Experiment 3</h1>
-<h2>Engineered Features in Linear Regression</h2>
-<p>In this experimenet, I'm testing Feature Engineering:</p>
-<ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+<h2> Linear Regression with Engineered Features</h2>
+<p>In this experiment, I'm testing:</p>
+<ol><li>Feature Engineering: Create new features that might better capture relationships</li></ol>
+  <ul>
+  <li>Power-to-weight ratio: Engine power relative to weight</li>
+  <li>Engine efficiency: Engine size relative to horsepower</li>
+  <li>Weight-to-doors ratio: Weight efficiency per door</li>
+  <li>Engine size squared: Captures the non linear relationship between engine size and price</li>
 </ul>
+<div class="codebox">
+# Optimized: Reduce redundant operations by chaining transformations
+feature_cols = ['enginesize', 'horsepower', 'curbweight', 'fueltype', 'aspiration', 'doornumber', 'price']
+
+# Single-pass data preparation: copy, filter, and convert in one chain
+df_exp3 = (df[feature_cols]
+           .dropna()
+           .assign(doornumber=lambda x: x['doornumber'].map({'two': 2, 'four': 4})))
+
+# Create engineered features efficiently using assign (avoids multiple dataframe copies)
+df_exp3 = df_exp3.assign(
+    Power_to_Weight=lambda x: x['horsepower'] / x['curbweight'],
+    Engine_Efficiency=lambda x: x['enginesize'] / x['horsepower'],
+    Weight_per_Door=lambda x: x['curbweight'] / x['doornumber'],
+    Engine_Size_Squared=lambda x: x['enginesize'] ** 2
+)
+
+# Drop redundant base features; keep engineered features + categorical variables
+df_exp3 = df_exp3.drop(columns=['enginesize', 'horsepower', 'curbweight', 'doornumber'])
+
+# One-hot encode categorical variables (optimized with dtype to avoid memory overhead)
+df_exp3 = pd.get_dummies(df_exp3, columns=['fueltype', 'aspiration'], drop_first=True, dtype=float)
+
+# Separate features and target
+X_exp3 = df_exp3.drop('price', axis=1)
+y_exp3 = df_exp3['price']
+
+# Train-test split
+X_train_exp3, X_test_exp3, y_train_exp3, y_test_exp3 = train_test_split(
+    X_exp3, y_exp3, test_size=0.2, random_state=42
+)
+
+# Standardize features
+scaler_exp3 = StandardScaler()
+X_train_exp4_scaled = scaler_exp3.fit_transform(X_train_exp3)
+X_test_exp4_scaled = scaler_exp3.transform(X_test_exp3)
+
+# Train LINEAR REGRESSION model (no regularization)
+model_exp3 = LinearRegression()
+model_exp3.fit(X_train_exp4_scaled, y_train_exp3)
+
+# Predictions
+y_train_pred_exp3 = model_exp3.predict(X_train_exp4_scaled)
+y_test_pred_exp3 = model_exp3.predict(X_test_exp4_scaled)
+
+# Metrics
+train_rmse_exp3 = np.sqrt(mean_squared_error(y_train_exp3, y_train_pred_exp3))
+test_rmse_exp3 = np.sqrt(mean_squared_error(y_test_exp3, y_test_pred_exp3))
+train_r2_exp3 = r2_score(y_train_exp3, y_train_pred_exp3)
+test_r2_exp3 = r2_score(y_test_exp3, y_test_pred_exp3)
+train_mae_exp3 = mean_absolute_error(y_train_exp3, y_train_pred_exp3)
+test_mae_exp3 = mean_absolute_error(y_test_exp3, y_test_pred_exp3)
+</div>
 
 <h2>Evaluation</h2>
 <ol>
-  <li>Data from exeriment</li>
+  <li>Training RMSE: $3556.59</li>
+  <li>Test RMSE: $3578.50</li>
+  <li>Training R²: 0.7879</li>
+  <li>Test R²: 0.8378</li>
+  <li>Training MAE: $2506.16</li>
+  <li>Test MAE: $2461.95</li>
 </ol>
 
 <h3>Experiment 3 outperformed Experiment 1 on both key metrics:</h3>
 <ol>
-  <li>1.</li>
-   <li>2. </li>
+  <li>Lower Test RMSE: 3578.50 versus 3662.52 (about $84 improvement)</li>
+   <li>Higher Test R²: 0.8378 vs 0.8301 (better fit)</li>
 </ol>
-<p></p>
+<p>Using the engineered features, the model was able to successfully capture the relationship between the orignial features independently and created a better relationship to price.</p>
 
 
 <h1>Impact</h1>
 <h2>Positive Impacts</h2>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Fair Pricing: Accurate price predictions help ensure fair market value for both buyers and sellers</li>
+  <li>Economic Efficiency: Reduces information asymmetry in the used car market</li>
+  <li>Consumer Protection: Helps buyers avoid overpaying for vehicles</li>
+  <li>Business Optimization: Dealerships can optimize inventory and pricing strategies</li>
 </ol>
 <h2>Negative Impacts</h2>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li> </li>
-  <li></li>
+  <li>Bias in Data: If training data reflects historical discrimination (e.g., certain demographics paying more), the model perpetuates this bias</li>
+  <li>Market Manipulation: Dealers could use predictions to artificially inflate prices</li>
+  <li>Reduced Negotiation: Transparent pricing might reduce negotiation opportunities for skilled negotiators</li>
+  <li>Privacy Concerns: Collecting detailed vehicle and owner data raises privacy questions</li>
+  <li>Model Limitations: The model doesn't account for subjective factors like brand reputation or emotional value</li>
 </ol>
 
 <h2>Mitigation Strategies</h2>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Regularly audit models for bias</li>
+  <li>Use diverse training data</li>
+  <li>Combine model predictions with human expertise</li>
+  <li>Ensure transparency about model limitations</li>
+  <li>Protect user privacy through data anonymization</li>
 </ol>
 
 
 <h1>Conclusion</h1>
 <h2>Comparison of All Experiments</h2>
-<p>comparison</p>
-<img>
-<p>Best performing model</p>
+<table>
+  <thead>
+    <tr>
+      <th>Experiment</th>
+      <th>Train RMSE</th>
+      <th>Test RMSE</th>
+      <th>Train R²</th>
+      <th>Test R²</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Exp 1: Linear Reg (All)</td>
+      <td>3303.1</td>
+      <td>3662.519</td>
+      <td>0.817</td>
+      <td>0.830</td>
+    </tr>
+    <tr>
+      <td>Exp 2: Ridge (Top 4)</td>
+      <td>3359.111</td>
+      <td>3800.411</td>
+      <td>0.810</td>
+      <td>0.817</td>
+    </tr>
+    <tr>
+      <td>Exp 3: Linear Reg (Engineered)</td>
+      <td>3556.593</td>
+      <td>3578.495</td>
+      <td>0.787</td>
+      <td>0.837</td>
+    </tr>
+  </tbody>
+</table>
+<img src='images/ExperimentComparison.png'>
+<p>Best performing model: Exp 3 with Test RMSE: $3578.50</p>
 
 <h2>Summary of Experimental Results</h2>
 <h3>Experiment 1: Linear Regression(All Features)</h3>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Test RMSE: $3,662.52 | Test R²: 0.8301</li>
+  <li>Key Finding: Achieved reasonable performance (83% variance explained) but showed signs of overfitting with test RMSE higher than training RMSE</li>
 </ul>
 <h3>Experiment 2: Ridge Regression(Top 4 Features)</h3>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Test RMSE: $3,800.41 | Test R²: 0.8170</li>
+  <li>Key Finding: Performed worse than Experiment 1 - RMSE increased by $137.89. Feature selection alone did not improve performance; the model lost important information by using only 4 features</li>
 </ul>
-<h3>Experiment 1: Linear Regression(Engineered Features)</h3>
+<h3>Experiment 3: Linear Regression(Engineered Features)</h3>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Test RMSE: $3,578.50 | Test R²: 0.8378</li>
+  <li>Key Finding: Best performing model - Improved Test RMSE by $84.02 compared to Experiment 1 and achieved the highest Test R² of 0.8378. The engineered features successfully captured important non-linear relationships</li>
 </ul>
 
 <h2>Key Learnings</h2>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li>
+  <li>Feature Engineering Outperforms Simple Feature Selection: Experiment 3 demonstrated that creating meaningful interactions and transformations (like Power-to-Weight ratio) significantly improves model performance compared to simply selecting top correlated features.</li>
+  <li>More Features Aren't Always Better, But the Right Features Are: Experiment 2 showed that reducing to only 4 features actually hurt performance. However, Experiment 3 proved that thoughtfully engineered features can outperform using all raw features.</li>
+  <li>Good Generalization is Achievable: Experiment 3's training R² (0.7879) being lower than test R² (0.8378) suggests excellent generalization - the model performs better on unseen data, which is the ultimate goal.</li>
+  <li>Data Understanding Guides Feature Engineering: The initial correlation analysis in Experiment 1 was critical for identifying which features to combine and transform in Experiment 3.</li>
+  <li>Model Complexity vs. Performance Trade-offs:
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>Experiment 1 (all features): Simple but adequate baseline</li>
+      <li>Experiment 2 (feature selection): Oversimplified and lost performance</li>
+      <li>Experiment 3 (engineered features): Optimal balance of complexity and accuracy</li>
     </ul>
   </li>
 </ol>
 
 <h2>Future Work</h2>
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Explore additional models- possibly lasso model or utilizing L2</li>
+  <li>Implement cross-validation for more robust performance estimates</li>
+  <li>Collect more data to improve model robustness and enable more complex feature engineering</li>
+  <li>Consider domain-specific features (e.g., brand reputation, market segment)</li>
 </ul>
 
 <h2>References</h2>
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Scikit-learn Documentation: https://scikit-learn.org/stable/
+    <ul>
+      <li>Linear Regression: <a>https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html</a></li>
+      <li>Ridge Regression: <a>https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html</a></li>
+    </ul>
+  </li>
+  <li>Regression Metrics: <a>https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics</a></li>
+  <li>Feature Engineering Best Practices: <a>https://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/</a></li>
+  <li>Dataset Source: <a>https://www.kaggle.com/datasets/hellbuoy/car-price-prediction</a></li>
+  <li>Utilized Claude 4.5 for programming tasks</li>
 </ol>
