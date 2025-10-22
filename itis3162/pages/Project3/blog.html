@@ -123,7 +123,7 @@
 
 <h2>Problem Statement and the Dataset</h2>
 <p>
-This project tackles a **regression problem**: predicting car prices based on various vehicle characteristics.
+This project tackles a regression problem: predicting car prices based on various vehicle characteristics.
  Predicting car prices is a fundamental problem in the automotive industry, used by dealers, buyers, and sellers to determine 
  fair market value. Accurate price predictions help:</p>
 <ul>
@@ -142,8 +142,7 @@ This project tackles a **regression problem**: predicting car prices based on va
   <li>Door Number: Number of doors</li>
   <li>Price: Target variable (what we're predicting)</li>
 </ul>
-<p>The dataset contains real car data with prices ranging from approximately 5000 to 45000
- 45,000</p>
+<p>The dataset contains real car data with prices ranging from approximately $5,000 to $45,000</p>
 
 <h2>What is Regression and How Does it Work?</h2>
 <h3>Linear Regression</h3>
@@ -185,7 +184,7 @@ Features this Experiment will focus on
 <ol>
   <li>Engine size: The closest correlation with price at 87%</li>
   <li>Curbweight: Second closes correlation at 83%</li>
-  <li>fueltype: : Different fuel types affect car pricing significantly. Diesel engines typically have different performance characteristics and costs.</li>
+  <li>fueltype: Different fuel types affect car pricing significantly. Diesel engines typically have different performance characteristics and costs.</li>
   <li>aspiration: Turbo engines are performance features that typically increase car value</li>
   <li>doornumber: Two-door cars (coupes/sports cars) often have different pricing structures than four-door sedans</li>
 </ol>
@@ -312,10 +311,11 @@ test_r2_exp2 = r2_score(y_test_exp2, y_test_pred_exp2)
   <li>R^2 increased .8170 </li>
 </ol>
 <p>Taking away some of the features, even thoug they had a lower correlation starved the model of information.</p>
-
+<img src="images/ExperimentComparison2.png">
 
 <h1>Experiment 3</h1>
 <h2> Linear Regression with Engineered Features</h2>
+<p>After seeing how experiment 1 performed better than experiment 2, I wanted to go back to the linear regression model</P>
 <p>In this experiment, I'm testing:</p>
 <ol><li>Feature Engineering: Create new features that might better capture relationships</li></ol>
   <ul>
@@ -395,6 +395,7 @@ test_mae_exp3 = mean_absolute_error(y_test_exp3, y_test_pred_exp3)
 </ol>
 <p>Using the engineered features, the model was able to successfully capture the relationship between the orignial features independently and created a better relationship to price.</p>
 
+<img src="images/ExperimentComparison3.png">
 
 <h1>Impact</h1>
 <h2>Positive Impacts</h2>

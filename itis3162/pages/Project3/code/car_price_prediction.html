@@ -8028,8 +8028,8 @@ Intercept: 13223.41
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training RMSE: $</span><span class="si">{</span><span class="n">train_rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test RMSE: $</span><span class="si">{</span><span class="n">test_rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training R²: </span><span class="si">{</span><span class="n">train_r2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test R²: </span><span class="si">{</span><span class="n">test_r2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training RÂ²: </span><span class="si">{</span><span class="n">train_r2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test RÂ²: </span><span class="si">{</span><span class="n">test_r2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training MAE: $</span><span class="si">{</span><span class="n">train_mae</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test MAE: $</span><span class="si">{</span><span class="n">test_mae</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -8068,8 +8068,8 @@ EXPERIMENT 1: Linear Regression (All Features)
 ==================================================
 Training RMSE: $3303.10
 Test RMSE: $3662.52
-Training R²: 0.8171
-Test R²: 0.8301
+Training RÂ²: 0.8171
+Test RÂ²: 0.8301
 Training MAE: $2336.07
 Test MAE: $2655.67
 </pre>
@@ -8164,11 +8164,11 @@ Test MAE: $2655.67
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training RMSE: $</span><span class="si">{</span><span class="n">train_rmse_exp2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test RMSE: $</span><span class="si">{</span><span class="n">test_rmse_exp2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training R²: </span><span class="si">{</span><span class="n">train_r2_exp2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test R²: </span><span class="si">{</span><span class="n">test_r2_exp2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training RÂ²: </span><span class="si">{</span><span class="n">train_r2_exp2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test RÂ²: </span><span class="si">{</span><span class="n">test_r2_exp2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Improvement over Experiment 1:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RMSE improvement: $</span><span class="si">{</span><span class="n">test_rmse</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">test_rmse_exp2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R² improvement: </span><span class="si">{</span><span class="n">test_r2_exp2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">test_r2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RÂ² improvement: </span><span class="si">{</span><span class="n">test_r2_exp2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">test_r2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8193,13 +8193,47 @@ EXPERIMENT 2: Ridge Regression (Top 4 Features)
 ==================================================
 Training RMSE: $3359.11
 Test RMSE: $3800.41
-Training R²: 0.8108
-Test R²: 0.8170
+Training RÂ²: 0.8108
+Test RÂ²: 0.8170
 
 Improvement over Experiment 1:
 RMSE improvement: $-137.89
-R² improvement: -0.0130
+RÂ² improvement: -0.0130
 </pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=exp2_viz">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Visualization: Actual vs Predicted Prices and Residual Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Subplot 1: Actual vs Predicted Prices</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test_exp2</span><span class="p">,</span> <span class="n">y_test_pred_exp2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">y_test_exp2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test_exp2</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">y_test_exp2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test_exp2</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="s1">'r--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Actual Price ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Predicted Price ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Experiment 2: Actual vs Predicted Prices'</span><span class="p">)</span>
+
+<span class="c1"># Subplot 2: Residual Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">residuals_exp2</span> <span class="o">=</span> <span class="n">y_test_exp2</span> <span class="o">-</span> <span class="n">y_test_pred_exp2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test_pred_exp2</span><span class="p">,</span> <span class="n">residuals_exp2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Predicted Price ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Residuals ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Residual Plot'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -8316,8 +8350,8 @@ since they capture non-linear relationships (like Engine_Size_Squared) and meani
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training RMSE: $</span><span class="si">{</span><span class="n">train_rmse_exp3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test RMSE: $</span><span class="si">{</span><span class="n">test_rmse_exp3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training R²: </span><span class="si">{</span><span class="n">train_r2_exp3</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test R²: </span><span class="si">{</span><span class="n">test_r2_exp3</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training RÂ²: </span><span class="si">{</span><span class="n">train_r2_exp3</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test RÂ²: </span><span class="si">{</span><span class="n">test_r2_exp3</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training MAE: $</span><span class="si">{</span><span class="n">train_mae_exp3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test MAE: $</span><span class="si">{</span><span class="n">test_mae_exp3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -8349,8 +8383,8 @@ EXPERIMENT 3: Linear Regression (Engineered Features)
 ==================================================
 Training RMSE: $3556.59
 Test RMSE: $3578.50
-Training R²: 0.7879
-Test R²: 0.8378
+Training RÂ²: 0.7879
+Test RÂ²: 0.8378
 Training MAE: $2506.16
 Test MAE: $2461.95
 
@@ -8367,6 +8401,40 @@ Intercept: 13223.41
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=exp3_viz">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Visualization: Actual vs Predicted Prices and Residual Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Subplot 1: Actual vs Predicted Prices</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test_exp3</span><span class="p">,</span> <span class="n">y_test_pred_exp3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">y_test_exp3</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test_exp3</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">y_test_exp3</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test_exp3</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="s1">'r--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Actual Price ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Predicted Price ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Experiment 3: Actual vs Predicted Prices'</span><span class="p">)</span>
+
+<span class="c1"># Subplot 2: Residual Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">residuals_exp3</span> <span class="o">=</span> <span class="n">y_test_exp3</span> <span class="o">-</span> <span class="n">y_test_pred_exp3</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test_pred_exp3</span><span class="p">,</span> <span class="n">residuals_exp3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Predicted Price ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Residuals ($)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Residual Plot'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cec35912">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8379,7 +8447,7 @@ Experiment 3 outperformed Experiment 1 on both key metrics:</p>
 <ul>
 <li><p>Lower Test RMSE: $3,578.50 vs $3,662.52 (about $84 better)</p>
 </li>
-<li><p>Higher Test R²: 0.8378 vs 0.8301 (better fit)</p>
+<li><p>Higher Test RÂ²: 0.8378 vs 0.8301 (better fit)</p>
 <p>Using the engineered features, the model was able to successfully capture the relationship between the orignial features independently and created a better relationship to price.</p>
 </li>
 </ul>
@@ -8410,8 +8478,8 @@ Experiment 3 outperformed Experiment 1 on both key metrics:</p>
     <span class="s1">'Experiment'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Exp 1: Linear Reg (All)'</span><span class="p">,</span> <span class="s1">'Exp 2: Ridge (Top 4)'</span><span class="p">,</span> <span class="s1">'Exp 3: Lasso (Engineered)'</span><span class="p">],</span>
     <span class="s1">'Train RMSE'</span><span class="p">:</span> <span class="p">[</span><span class="n">train_rmse</span><span class="p">,</span> <span class="n">train_rmse_exp2</span><span class="p">,</span> <span class="n">train_rmse_exp3</span><span class="p">],</span>
     <span class="s1">'Test RMSE'</span><span class="p">:</span> <span class="p">[</span><span class="n">test_rmse</span><span class="p">,</span> <span class="n">test_rmse_exp2</span><span class="p">,</span> <span class="n">test_rmse_exp3</span><span class="p">],</span>
-    <span class="s1">'Train R²'</span><span class="p">:</span> <span class="p">[</span><span class="n">train_r2</span><span class="p">,</span> <span class="n">train_r2_exp2</span><span class="p">,</span> <span class="n">train_r2_exp3</span><span class="p">],</span>
-    <span class="s1">'Test R²'</span><span class="p">:</span> <span class="p">[</span><span class="n">test_r2</span><span class="p">,</span> <span class="n">test_r2_exp2</span><span class="p">,</span> <span class="n">test_r2_exp3</span><span class="p">]</span>
+    <span class="s1">'Train RÂ²'</span><span class="p">:</span> <span class="p">[</span><span class="n">train_r2</span><span class="p">,</span> <span class="n">train_r2_exp2</span><span class="p">,</span> <span class="n">train_r2_exp3</span><span class="p">],</span>
+    <span class="s1">'Test RÂ²'</span><span class="p">:</span> <span class="p">[</span><span class="n">test_r2</span><span class="p">,</span> <span class="n">test_r2_exp2</span><span class="p">,</span> <span class="n">test_r2_exp3</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="n">comparison_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comparison_data</span><span class="p">)</span>
@@ -8433,8 +8501,8 @@ Experiment 3 outperformed Experiment 1 on both key metrics:</p>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">test_rmses</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">])</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">experiments</span><span class="p">,</span> <span class="n">test_r2s</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Test R²'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Test R² Comparison'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Test RÂ²'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Test RÂ² Comparison'</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -8459,7 +8527,7 @@ Experiment 3 outperformed Experiment 1 on both key metrics:</p>
 ================================================================================
 EXPERIMENT COMPARISON
 ================================================================================
-               Experiment  Train RMSE   Test RMSE  Train R²  Test R²
+               Experiment  Train RMSE   Test RMSE  Train RÂ²  Test RÂ²
   Exp 1: Linear Reg (All) 3303.100050 3662.519955  0.817055 0.830081
      Exp 2: Ridge (Top 4) 3359.111791 3800.411091  0.810797 0.817046
 Exp 3: Lasso (Engineered) 3556.593892 3578.495106  0.787897 0.837789
@@ -8520,23 +8588,23 @@ Best performing model: Exp 3 with Test RMSE: $3578.50
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h2><h3 id="Summary-of-Experimental-Results">Summary of Experimental Results<a class="anchor-link" href="#Summary-of-Experimental-Results">¶</a></h3><h4 id="Experiment-1:-Linear-Regression-(All-Features)"><strong>Experiment 1: Linear Regression (All Features)</strong><a class="anchor-link" href="#Experiment-1:-Linear-Regression-(All-Features)">¶</a></h4><ul>
-<li><strong>Test RMSE:</strong> $3,662.52 | <strong>Test R²:</strong> 0.8301</li>
+<li><strong>Test RMSE:</strong> $3,662.52 | <strong>Test RÂ²:</strong> 0.8301</li>
 <li><strong>Key Finding:</strong> Achieved reasonable performance (83% variance explained) but showed signs of overfitting with test RMSE higher than training RMSE</li>
 </ul>
 <h4 id="Experiment-2:-Ridge-Regression-(Top-4-Features)"><strong>Experiment 2: Ridge Regression (Top 4 Features)</strong><a class="anchor-link" href="#Experiment-2:-Ridge-Regression-(Top-4-Features)">¶</a></h4><ul>
-<li><strong>Test RMSE:</strong> $3,800.41 | <strong>Test R²:</strong> 0.8170</li>
+<li><strong>Test RMSE:</strong> $3,800.41 | <strong>Test RÂ²:</strong> 0.8170</li>
 <li><strong>Key Finding:</strong> <strong>Performed worse than Experiment 1</strong> - RMSE increased by $137.89. Feature selection alone did not improve performance; the model lost important information by using only 4 features</li>
 </ul>
-<h4 id="Experiment-3:-Linear-Regression-with-Engineered-Features-%E2%9C%93-BEST-MODEL"><strong>Experiment 3: Linear Regression with Engineered Features</strong> ✓ <strong>BEST MODEL</strong><a class="anchor-link" href="#Experiment-3:-Linear-Regression-with-Engineered-Features-%E2%9C%93-BEST-MODEL">¶</a></h4><ul>
-<li><strong>Test RMSE:</strong> $3,578.50 | <strong>Test R²:</strong> 0.8378</li>
-<li><strong>Key Finding:</strong> <strong>Best performing model</strong> - Improved Test RMSE by $84.02 compared to Experiment 1 and achieved the highest Test R² of 0.8378. The engineered features successfully captured important non-linear relationships</li>
+<h4 id="Experiment-3:-Linear-Regression-with-Engineered-Features-%C3%A2%C5%93%E2%80%9C-BEST-MODEL"><strong>Experiment 3: Linear Regression with Engineered Features</strong> âœ“ <strong>BEST MODEL</strong><a class="anchor-link" href="#Experiment-3:-Linear-Regression-with-Engineered-Features-%C3%A2%C5%93%E2%80%9C-BEST-MODEL">¶</a></h4><ul>
+<li><strong>Test RMSE:</strong> $3,578.50 | <strong>Test RÂ²:</strong> 0.8378</li>
+<li><strong>Key Finding:</strong> <strong>Best performing model</strong> - Improved Test RMSE by $84.02 compared to Experiment 1 and achieved the highest Test RÂ² of 0.8378. The engineered features successfully captured important non-linear relationships</li>
 </ul>
 <h3 id="Key-Learnings">Key Learnings<a class="anchor-link" href="#Key-Learnings">¶</a></h3><ol>
 <li><p><strong>Feature Engineering Outperforms Simple Feature Selection</strong>: Experiment 3 demonstrated that creating meaningful interactions and transformations (like Power-to-Weight ratio) significantly improves model performance compared to simply selecting top correlated features.</p>
 </li>
 <li><p><strong>More Features Aren't Always Better, But the Right Features Are</strong>: Experiment 2 showed that reducing to only 4 features actually hurt performance. However, Experiment 3 proved that thoughtfully engineered features can outperform using all raw features.</p>
 </li>
-<li><p><strong>Good Generalization is Achievable</strong>: Experiment 3's training R² (0.7879) being lower than test R² (0.8378) suggests excellent generalization - the model performs better on unseen data, which is the ultimate goal.</p>
+<li><p><strong>Good Generalization is Achievable</strong>: Experiment 3's training RÂ² (0.7879) being lower than test RÂ² (0.8378) suggests excellent generalization - the model performs better on unseen data, which is the ultimate goal.</p>
 </li>
 <li><p><strong>Data Understanding Guides Feature Engineering</strong>: The initial correlation analysis in Experiment 1 was critical for identifying which features to combine and transform in Experiment 3.</p>
 </li>
