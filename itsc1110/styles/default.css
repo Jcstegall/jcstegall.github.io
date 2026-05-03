@@ -1,75 +1,125 @@
-body{
-    background-color: rgb(141, 170, 170);
-    text-align: center;
-    color: black;
-    font-family: monospace;
-    font-size: 2em;
-}
-a {
-    color: whitesmoke;   
-    text-decoration: none;
-    font-family: sans-serif;
+body {
+    background-color: rgb(34, 60, 80);
+    color: rgb(220, 235, 245);
+    font-family: 'Georgia', serif;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 0;
 }
 
-a:hover {
-    color: crimson;
-}
-main {
+header {
+    background-color: rgb(20, 40, 60);
+    padding: 1em 2em;
     text-align: center;
+}
+
+footer {
+    background-color: rgb(20, 40, 60);
+    padding: 1em 2em;
+    text-align: center;
+    margin-top: 2em;
+}
+
+main {
     margin: 0 auto;
-    max-width: 1200px; 
+    max-width: 900px;
     width: 90%;
+    padding: 1.5em 0;
+}
+
+h1 {
+    font-size: 1.6em;
+    margin-bottom: 0.3em;
 }
 
 h2 {
-    text-align: center;
+    text-align: left;
+    border-bottom: 2px solid rgb(100, 160, 200);
+    padding-bottom: 0.2em;
 }
-/* img{
-    width: 60%;
-    border:0;
-    width:88px;
-    height:31px
-} */
-.profile {
-    width: 702px;
-    height: auto; 
+
+p {
+    text-align: left;
+    line-height: 1.7;
 }
+
+a {
+    color: rgb(130, 195, 230);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(255, 160, 80);
+    text-decoration: underline;
+}
+
+nav {
+    margin: 0.5em 0;
+}
+
+nav a {
+    margin: 0 0.4em;
+}
+
 figure {
     text-align: center;
+    margin: 1.5em auto;
+}
+
+figcaption {
     font-style: italic;
+    margin-top: 0.4em;
 }
-ul{
+
+img.profile {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border: 3px solid rgb(100, 160, 200);
+}
+
+ul, ol {
     text-align: left;
-    list-style-position: inside;
+    padding-left: 1.5em;
+    line-height: 1.7;
 }
-ol{
-    text-align: left;
-    list-style-position: inside;
+
+ul ul {
+    list-style-type: circle;
+    padding-left: 1.5em;
 }
-.questions {
-    font-size: 15px;
+
+strong {
+    color: rgb(255, 200, 100);
 }
+
 .cert {
     font-style: italic;
 }
-.class_list {
-    padding-left: 75px;
-}
-/* Rule Overrides For Laptops / Small Screens */
-@media screen and ( min-width: 981px ) and ( max-width: 1400px ) {
-    #body{
-        background-color:rgb(46, 148, 148);
+
+/* Laptops / Small Screens */
+@media screen and (min-width: 981px) and (max-width: 1400px) {
+    body {
+        background-color: rgb(30, 55, 75);
     }
 }
-/* Rule Overrides For Tablet Devices */
-@media screen and ( min-width: 601px ) and ( max-width: 980px )  {
-    #body {
-        background-color:rgb(100, 161, 161);
+
+/* Tablet */
+@media screen and (min-width: 601px) and (max-width: 980px) {
+    body {
+        background-color: rgb(28, 50, 70);
+    }
+    main {
+        width: 95%;
     }
 }
-/* Rule Overrides For Mobile Devices */
-@media screen and ( min-width: 370px ) and ( max-width: 600px ) {
-    #body {
-        background-color:rgb(138, 153, 153);
+
+/* Mobile */
+@media screen and (min-width: 370px) and (max-width: 600px) {
+    body {
+        font-size: 1em;
+    }
+    main {
+        width: 95%;
     }
 }
